@@ -416,8 +416,8 @@ document.write(`
 <details>
 <summary><b>Solution</b></summary>
 <p><strong>Step 1</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-d88024b4-af1d-461b-8142-7705548e03cb">
-<span class="eqno">(1)<a class="headerlink" href="#equation-d88024b4-af1d-461b-8142-7705548e03cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-38001fc7-0e8c-4f39-9262-a931d566203d">
+<span class="eqno">(1)<a class="headerlink" href="#equation-38001fc7-0e8c-4f39-9262-a931d566203d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (a\ast b)\text{ mod }p=(a\text{ mod }p\ast b\text{ mod }p)\text{ mod }p?
 \label{modular_mult}
 \end{equation}\]</div>
@@ -435,8 +435,8 @@ ab &amp;=&amp;\left( a_{p}p+r_{a}\right) \left( b_{p}p+r_{b}\right)  \\
 &amp;=&amp;p\left( a_{p}b_{p}p+r_{b}a_{p}+r_{a}b_{p}\right) +r_{a}r_{b}.
 \end{eqnarray*}\]</div>
 <p>Taking the modulo of this expression, we find that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4e099197-c6ad-49bb-a391-1b3c1a9e75eb">
-<span class="eqno">(2)<a class="headerlink" href="#equation-4e099197-c6ad-49bb-a391-1b3c1a9e75eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-525049c2-00c6-4c05-819c-d6eeaf20d700">
+<span class="eqno">(2)<a class="headerlink" href="#equation-525049c2-00c6-4c05-819c-d6eeaf20d700" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (ab)\text{ mod }p=\left( r_{a}r_{b}\right) \text{ mod }p.  \label{modular_mult_2}
 \end{equation}\]</div>
 <p>Let’s check that the right-hand side of <span class="math notranslate nohighlight">\(\left( 1\right) \)</span>
@@ -481,7 +481,7 @@ s &amp;=&amp;\left( g^{b}\text{ mod }p\right) ^{a}\text{ mod }p \\
 <section id="exercise-2-2">
 <h2>Exercise 2.2.<a class="headerlink" href="#exercise-2-2" title="Link to this heading">#</a></h2>
 <p>Use Euler’s Totient Theorem to show that the RSA protocol delivers consistent encryption and decryption.</p>
-<p>Hint: You need to prove that <span class="math notranslate nohighlight">\(m =(mKB \text{ mod } nB) kB \text{ mod }  nB\)</span>.</p>
+<p>Hint: You need to prove that <span class="math notranslate nohighlight">\(m =(m^{KB} \text{ mod } nB)^{ kB} \text{ mod }  nB\)</span>.</p>
 <details>
 <summary><b>Solution</b></summary>
 <p>Let’s first recap a series of useful results for our protocol:</p>
@@ -567,7 +567,7 @@ The receiver\verifier calculates the hash of the document using the same hash fu
 <h2>Exercise 2.4.<a class="headerlink" href="#exercise-2-4" title="Link to this heading">#</a></h2>
 <p>Write a script in Python that implements RSA encryption/decryption.</p>
 <p><strong>Solution</strong></p>
-<p>Below is a draft of the code. You have to complete its two commented section starting with ‘#Your code goes here’ to make it work.</p>
+<p>Below is a draft of the code. You have to complete its two commented sections starting with ‘#Your code goes here’ to make it work.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">=</span> <span class="mi">23</span>
 <span class="n">q</span><span class="o">=</span> <span class="mi">17</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Choosen primes:</span><span class="se">\n</span><span class="s2">p=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, q=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>

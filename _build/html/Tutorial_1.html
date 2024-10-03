@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>1. Wallet Creation &#8212; My Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorial_1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="2. Bitcoin Transactions" href="Tutorial_2.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">My Jupyter Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Wallet Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_2.html">2. Bitcoin Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_3.html">3. Ethereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_4.html">4. Decentralised Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_5.html">5. Ethereum Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_6.html">6. NFTs and Token Standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Mint_NFT.html">Mint Your NFT</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Tutorial_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>1. Wallet Creation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-crypto">Why Crypto?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wallets">Wallets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-wallets">What are wallets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-a-wallet-necessary">Why is a wallet necessary?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-a-wallet-a-good-idea">Why is a wallet a good idea?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-wallets">Types of wallets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-ethereum-wallet">Setting up your Ethereum wallet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-bitcoin-wallet">Setting up your Bitcoin wallet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acquiring-some-cryptocurrency">Acquiring some cryptocurrency</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-bitcoin-to-your-own-xdefi-wallet">Adding bitcoin to your own XDEFI wallet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-funds-to-the-electrum-wallet-optional">Adding funds to the Electrum wallet (optional)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-ether-to-your-metamask-wallet">Add Ether to your MetaMask wallet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thing-to-look-out-for-on-the-blockchain">Thing to look out for on the Blockchain</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-tutorial">Next tutorial</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="wallet-creation">
+<h1>1. Wallet Creation<a class="headerlink" href="#wallet-creation" title="Link to this heading">#</a></h1>
+<p>The goal of this tutorial is to provide guidance for the setup necessary to interact with the Ethereum and Bitcoin blockchains. We start off by explaining the original motivation behind the creation of cryptocurrencies according to the creator of Bitcoin, Satoshi Nakamoto. Following that, we introduce digital wallets, first giving a brief overview of what they are and why they’re necessary. We then provide step by step instructions on how to download and install both an Ethereum wallet and  Bitcoin wallet. The tutorial is concludes with a section detailing how to acquire cryptocurrencies, with the example of Bitcoin.</p>
+<section id="why-crypto">
+<h2>Why Crypto?<a class="headerlink" href="#why-crypto" title="Link to this heading">#</a></h2>
+<p>The pivotal concept behind Crypto is ‘trustlessness’. To understand the story and motivations behind cryptocurrency, it’s helpful to possess some knowledge of the financial industry during its inception and the attitudes of its most dedicated users. Although electronic money had been around for longer, the very first coin that can be considered a cryptocurrency is Bitcoin, created in 2009 by someone going by the alias Satoshi Nakamoto, whose actual identity is unknown to this day. The first two sentences of <a class="reference external" href="https://www.ussc.gov/sites/default/files/pdf/training/annual-national-training-seminar/2018/Emerging_Tech_Bitcoin_Crypto.pdf">Satoshi Nakamoto’s paper</a> explaining the necessity and functionality of Bitcoin read</p>
+<blockquote>
+<div><p>“Commerce on the Internet has come to rely almost exclusively on financial institutions serving as trusted third parties to process electronic payments. While the system works well enough for most transactions, it still suffers from the inherent weaknesses of the trust based model.”</p>
+</div></blockquote>
+<p>After the Great Financial Crisis in the United States and the onset of the Eurozone crisis in the EU, 2009 marked a period of historically low trust in the financial sector, and this is reflected in what Satoshi sees as the problem with the financial system, which goes as follows</p>
+<blockquote>
+<div><p>Completely non-reversible transactions are not really possible, since financial institutions cannot avoid mediating disputes. The cost of mediation increases transaction costs … and there is a broader cost in the loss of ability to make non-reversible payments for non-reversible services. With the possibility of reversal, the need for trust spreads. Merchants must
+be wary of their customers, hassling them for more information than they would otherwise need. A certain percentage of fraud is accepted as unavoidable. These costs and payment uncertainties can be avoided in person by using physical currency, but no mechanism exists to make payments over a communications channel without a trusted party.</p>
+</div></blockquote>
+<p>The central issue that the cryptocurrency community has focused on is the need to be able to trust the party you are transacting with. You need to be able to trust that your savings will not disappear overnight, merely because a bank’s risk department resented the the allegation that it was ‘The Anti-Fun Club’ and took too many risks with your capital. The theory, therefore, is that without a risk department handling your savings, you, the transactor, are in charge of your own money - when using cryptocurrency, you only need to trust is the blockchain, mathematics and programming. Trusting mathematics and programming (if written well and open source) is easy. Trusting the blockchain though, means trusting that it’s impossible for a single bad actor to attack the framework on which a cryptocurrency is built (the blockchain). It is typically easy for this trust to be built, since the monetary sums, and more importantly the computational resources, that would be necessary to attack the system are so large, that it is simply infeasible for a single attacker to ‘break’ the system. Furthermore, coordination by multiple actors - who have the power to attack the system - is unlikely due to the high risk of failure - although, it is not impossibly by any means. However, since the cryptocurrency eco-system is transparent, proponents of its use would argue that the same could happen - and has happened - in the traditional banking sector, and that worse yet, users have not had the opportunity to intervene or access information, as they would on the blockchain.</p>
+<p>This means that a core design philosophy for those interested in cryptocurrencies is decentralisation; no single party should have enough control over the system to be able to cause the collapse of the system. This does not mean that there cannot be a few monopolistic platforms, but it does mean that these platforms should at least be open source, and the governance of these platforms will not be subject to a narrow board of executives.</p>
+<p>This doesn’t imply that the world of cryptocurrency always operates this way. The issue of centralized governance is still unresolved for individual platforms. However, since anyone can easily replicate open-source code and create a competing platform, often at a cost of just a few dozen euros, it offers accessible alternatives to markets with monopolistic tendencies. Moreover, many cryptocurrency designers and those developing applications on top of them consistently prioritize the principles of decentralization and trustlessness.</p>
+</section>
+<section id="wallets">
+<h2>Wallets<a class="headerlink" href="#wallets" title="Link to this heading">#</a></h2>
+<p>Essential to anyone who wants to own, manage, or transact using cryptocurrencies like Bitcoin, Ethereum, or any other digital assets, is a wallet. The following section will explain what a wallet is, with some emphasis given to what it is from a computer science or cryptographic perspective, why wallets are useful and why anyone who wants to truly interact with cryptocurrencies should have one - although it is not technically necessary. Finally, this section features a tutorial on how to install a wallet for the two most popular cryptocurrencies, Bitcoin and Ethereum.</p>
+<section id="what-are-wallets">
+<h3>What are wallets<a class="headerlink" href="#what-are-wallets" title="Link to this heading">#</a></h3>
+<p>A wallet is an application which lets you interact with the blockchain through an account (in crypto jargon an “address”), which is a pair of cryptographic keys (a public and a private key). Your public key is your identity on Bitcoin or Ethereum</p>
+<details style="border: 1px solid #ccc; border-radius: 10px; width: 700px;">
+  <summary style="font-weight: bold; cursor: pointer; padding: 5px;"> 
+  Click for more details</summary>
+  <p>A Bitcoin account is a collection of public keys (collection of addresses). An Ethereum account is one public key while an Ethereum address is the last 20 bytes of the Keccak-256 hash of the public key with 0x added to the beginning. For example, the following Ethereum address “0x69c488Bcda156379B6661f08A35dB627E5D467Dd” is the account of the person who bought the fifth most expensive piece of NFT art at the time of writing, while his (compressed) public key is the following “0x02681cf7abba48330ebd84a5b55bcb09895ca711b4de460f69c0a5b4773d8d61d2”</p>
+</details>
+<p>Note that your private key should never be shared. You can think of your Bitcoin or Ethereum account as operating like a bank account, the public key is your bank account identifier, and the private key is your password. A useful analogy, particularly for Ethereum, is to liken your cryptocurrency account to a bank card and a crypto wallet to the wallet where you store your bank card. You can have multiple accounts within a single blockchain, and the wallet helps you keep them organized. While you can switch wallets, the card you carry is still associated with the same account.</p>
+<p>The reason for needing separate wallets is that different blockchains, such as Bitcoin and Ethereum, are distinct technological systems. They are akin to the FedNow payment system utilized by the Federal Reserve in the US and the TIPS payment system employed by the European Central Bank. There’s no straightforward method for transferring funds from a Bitcoin account to an Ethereum account.</p>
+</section>
+<section id="why-is-a-wallet-necessary">
+<h3>Why is a wallet necessary?<a class="headerlink" href="#why-is-a-wallet-necessary" title="Link to this heading">#</a></h3>
+<p>The short answer is ‘no, but it’s convenient’.</p>
+<p>The longer answer is that wallets handle communication between the blockchain and your account, so without a wallet, every time you want to send a transaction, you have to write a piece of code to broadcast your intent to transact, to the blockchain. The wallet handles all of that for you, and accounts for a simplified UX.</p>
+</section>
+<section id="why-is-a-wallet-a-good-idea">
+<h3>Why is a wallet a good idea?<a class="headerlink" href="#why-is-a-wallet-a-good-idea" title="Link to this heading">#</a></h3>
+<p>Let’s say that you want to hold Ether (the currency on the Ethereum blockchain) or Bitcoin. Grosso modo, there are two ways of doing so, a “self-custodial” (meaning you’re the one who controls it) wallet as discussed above, or trusting a third party to hold the crypto for you in their own wallet.</p>
+<p>When you first step into the world of different cryptocurrencies, you inevitably have to rely on an intermediary willing to exchange fiat currencies for cryptocurrencies. When purchasing cryptocurrencies, you use fiat, but since it’s essentially impossible (with some exceptions) to directly possess fiat in the crypto realm, you must engage with a centralized entity known as a crypto exchange.</p>
+<p>Popular crypto exchanges include: Binance, Kraken, Coinbase, but also ones that have exploded spectacularly like <a class="reference external" href="https://en.wikipedia.org/wiki/Mt._Gox">Mt. Gox</a> or the much more recent <a class="reference external" href="https://en.wikipedia.org/wiki/FTX">FTX</a>. By default when you purchase cryptocurrency for fiat, you will gain a claim (note that the legal framework around this is not fully developed) on some amount of cryptocurrency held in a wallet, controlled by the exchange you used. Yet, the stories of FTX and Mt. Gox highlight the risks of keeping cryptocurrency in someone else’s wallet: you have limited control over what they do with it.</p>
+<p>By holding cryptocurrencies in a centralized exchange, you are essentially entrusting them to that exchange’s account, with the expectation that they will transfer the funds to your account when requested. Holding cryptocurrency in a wallet under your control eliminates uncertainty regarding whether the crypto exchange will fulfill its promise. Additionally, it’s worth noting that some crypto exchanges have previously blacklisted specific wallet addresses.</p>
+</section>
+<section id="types-of-wallets">
+<h3>Types of wallets<a class="headerlink" href="#types-of-wallets" title="Link to this heading">#</a></h3>
+<p>If you’re wondering what kind of wallets you can choose, you typically have two types to choose from; hot and cold wallets. Hot wallets are what will be used in this tutorial - pieces of software that are connected to the internet. Cold wallets are physical devices that store your private key, like a USB stick. Cold wallets are more secure, since you can physically control when they are connected to the internet and when they are not. But they are also more likely to be lost. This tutorial will not feature cold wallets (see here if interested).</p>
+<p><a class="reference external" href="https://blockworks.co/news/cold-wallets-secure-crypto-custody">What Are Cold Wallets? The Most Secure Crypto Custody</a></p>
+</section>
+</section>
+<section id="setting-up-your-ethereum-wallet">
+<h2>Setting up your Ethereum wallet<a class="headerlink" href="#setting-up-your-ethereum-wallet" title="Link to this heading">#</a></h2>
+<p>Throughout this series of tutorials, sections beginning with a header featuring a green background are intended for active participation and should be followed along.</p>
+<p>For the purposes of this tutorial, we will be using the MetaMask wallet for Ethereum. This is the most popular Ethereum wallet and is considered a browser wallet. You can browse other trusted Ethereum wallets <a class="reference external" href="https://ethereum.org/en/wallets/find-wallet/">here</a>.</p>
+<p>First you want to go to <a class="reference external" href="https://metamask.io/">https://metamask.io/</a> and click install “MetaMask for <em>whatever browser you have</em>”</p>
+<p><img alt="Untitled" src="_images/Image1.png" /></p>
+<p><img alt="Untitled" src="_images/Image11.png" /></p>
+<p>Once you’ve added it to your browser you will be redirected to a let’s get started page.</p>
+<p><img alt="Untitled" src="_images/Image2.png" /></p>
+<p>You want to select the “Create a new wallet” choice. Create a password. Then select a seed phrase. At this point I want to reiterate the importance of the phrase secrète de recuperation. The crypto world is not a place where in the case of forgetting your password you can, or would want to, get a recovery link on your email. In case you forget your password or anything else happens, the phrase secrete de recuperation is the last line of defence. If you share that phrase or lose it, you will lose the money you have on that account.</p>
+<p><img alt="Untitled" src="_images/Image3.png" /></p>
+<p><img alt="Untitled" src="_images/Image4.png" /></p>
+</section>
+<section id="setting-up-your-bitcoin-wallet">
+<h2>Setting up your Bitcoin wallet<a class="headerlink" href="#setting-up-your-bitcoin-wallet" title="Link to this heading">#</a></h2>
+<p>Using Bitcoin is quite similar to Ethereum. The most widely used and secure Bitcoin wallet is called Electrum. One drawback is that it’s not very compatible with applications built on top of the Bitcoin blockchain. It’s important to note that the Electrum wallet is a standalone application, not a browser-based wallet. If you decide to use Bitcoin after this tutorial, we recommend Electrum, and an installation guide is provided below. Other popular Bitcoin wallets can be found here <a class="reference external" href="https://bitcoin.org/en/choose-your-wallet">https://bitcoin.org/en/choose-your-wallet</a>.</p>
+<p>For the purposes of this tutorial we will be using XDefi, a browser wallet that supports multiple different blockchains. The reason for this is that it is more integrated, with applications built on top of the Bitcoin blockchain and easier to use. It is important to note it is also less secure due to it being relatively new and a browser wallet, so storing large amounts of money on it is inadvisable.</p>
+<ul>
+<li><p>Electrum Installation guide (optional)</p>
+<p>An alternative Bitcoin wallet is Electrum, it is more useful if you are planning on only using Bitcoin, as it provides easy access to what’s called the ‘lightning network’. This is an application built on top of the Bitcoin blockchain which, among other things, makes it cheaper to send transactions.</p>
+<p>You can access the Electrum wallet download page from here: <a class="reference external" href="https://electrum.org/">https://electrum.org/</a>.</p>
+<p><img alt="Untitled" src="_images/Image5.png" /></p>
+<p>Navigate to the downloads tab and select your operating system to download the correct files. I will be downloading the Windows Installer <strong>(make a note between standalone exe and installer)</strong></p>
+<p>Once you have installed it open it and you should be greeted with the following page:</p>
+<p><img alt="Untitled" src="_images/Image6.png" /></p>
+<p>Select Auto connect and you should be take to the next page, where you will be asked to create a wallet</p>
+<p><img alt="Untitled" src="_images/Image7.png" /></p>
+<p>Select ‘Next’ and ‘Standard wallet’ on the next page. Then select the ‘create a new seed’ option and save the text that it generated. Just like with the Ethereum wallet, this serves as the “master key” to your wallet, and in case you should forget your password this is what will allow you to recover it. So make sure to save it somewhere secure where you won’t lose it. Once you have saved your seed phrase and created a password you will be greeted with the following page:</p>
+<p><img alt="Untitled" src="_images/Image8.png" /></p>
+<p>This is the electrum wallet</p>
+</li>
+</ul>
+<p>To install the XDefi wallet you want to go to <a class="reference external" href="https://www.xdefi.io/">https://www.xdefi.io/</a> and click install “Install XDefi” in the top right corner. This will take you to your browsers extension market. Make sure that it has the logo which looks like this and a verified mark next to it.</p>
+<p><img alt="Untitled" src="_images/Image9.png" /></p>
+<p>Add it to your browser, and then navigate to your bookmarks tab and open XDefi. It should look like this</p>
+<p><img alt="Untitled" src="_images/Image10.png" /></p>
+<p>Click on “Let’s get started” and you will be redirected to a webpage that looks like the following:</p>
+<p><img alt="Untitled" src="_images/Image111.png" /></p>
+<p>Choose the Create XDEFI Wallet option and you will be asked to first create a password, then given a 12 word seed phrase, which just like with the Ethereum wallet, serves as the “master key” to your wallet. In case you should forget your password this is what will allow you to recover it. So make sure to save it somewhere secure where you won’t lose it, advisably offline. Once you have created your password and saved your seed phrase, you will be asked to make XDefi your default wallet - this is up to you. Finally you will be greeted by the following page:</p>
+<p><img alt="Untitled" src="_images/Image12.png" /></p>
+<p>Once you open the wallet up from your extensions, it will look like the following:</p>
+<p><img alt="Untitled" src="_images/Image13.png" /></p>
+</section>
+<section id="acquiring-some-cryptocurrency">
+<h2>Acquiring some cryptocurrency<a class="headerlink" href="#acquiring-some-cryptocurrency" title="Link to this heading">#</a></h2>
+<p>As mentioned previously, the three most common places to purchase crypto are Kraken, Coinbase and Coindesk. Choose one of the three (all three are safe, especially since we are moving the assets into our personal wallets immediately after purchasing them). I would recommend purchasing about 50 euros worth of Bitcoin and for the moment - no Ethereum.</p>
+<section id="adding-bitcoin-to-your-own-xdefi-wallet">
+<h3>Adding bitcoin to your own XDEFI wallet<a class="headerlink" href="#adding-bitcoin-to-your-own-xdefi-wallet" title="Link to this heading">#</a></h3>
+<p>Once you have acquired some Bitcoin through your crypto exchange of choice, you want to withdraw it into your own wallet, to have custody over it.</p>
+<p>The first thing to be done is to open a Bitcoin wallet on XDEFI by clicking the “Add Asset” button</p>
+<p><img alt="Untitled" src="_images/tempsnip.png" /></p>
+<p>And then searching for Bitcoin in the list of cryptocurrencies</p>
+<p><img alt="Untitled" src="_images/Image14.png" /></p>
+<p>Once Bitcoin is added to your list of assets click on the three dots on the right to open up a menu and choose “Copy Chain Address”</p>
+<p><img alt="Untitled" src="_images/Image15.png" /></p>
+<p>The copied text is your Bitcoin public address. This can be shared with others in order to request funds or withdraw your own funds.</p>
+<p>For example the Bitcoin(BTC) address seen below on The Pirate Bay homepage is generated in the same way.</p>
+<p><img alt="Untitled" src="_images/tempsnip1.png" /></p>
+<p>Now that you have the withdrawal address, open up the crypto exchange once more and navigate to your Bitcoin holdings, on Kraken this looks as follows:</p>
+<p><img alt="Untitled" src="_images/tempsnip2.png" /></p>
+<p>Once you select “Add Bitcoin address” you will see the following:</p>
+<p><img alt="Untitled" src="_images/Image16.png" /></p>
+<p>From the description at the top, you’ll find information about the address. Below, paste the Bitcoin address we generated just before. Double-check that the address is correct because if there’s a mistake, your money will be transferred, but you won’t be able to access it.</p>
+<p>Once you’ve confirmed the withdrawal address, return to the home page and confirm the transfer. Your Bitcoin should arrive in your wallet within 10 minutes. We’ll explain the reason for the delay in the next tutorial.</p>
+</section>
+<section id="adding-funds-to-the-electrum-wallet-optional">
+<h3>Adding funds to the Electrum wallet (optional)<a class="headerlink" href="#adding-funds-to-the-electrum-wallet-optional" title="Link to this heading">#</a></h3>
+<p>The very first thing you want to do is generate a Bitcoin address by opening up your Electrum wallet form, navigating to the receive tab and selecting “Create Request”</p>
+<p><img alt="Untitled" src="_images/tempsnip3.png" /></p>
+<p>This should open a box on the right containing your bitcoin address. If it contains a link instead, then the circled spot should contain “Bitcoin URL” instead, click on it until the button looks as presented in the screenshot. The text contained in the box below in your Electrum wallet is your Bitcoin public address. This can be shared with others in order to request funds or withdraw your own funds.</p>
+</section>
+<section id="add-ether-to-your-metamask-wallet">
+<h3>Add Ether to your MetaMask wallet<a class="headerlink" href="#add-ether-to-your-metamask-wallet" title="Link to this heading">#</a></h3>
+<p>Note that for the purposes of this series of tutorials, we will not be purchasing any Ether. In the case that you wish to purchase Ether (The name of the coin on the Ethereum blockchain) in the future, it works in much the same way as purchasing Bitcoin, except it is not necessary to generate an address, indeed the address that is displayed in the MetaMask wallet is the only address you will need (the differences between Bitcoin and Ethereum wallets will be explained in a future tutorial).</p>
+<p><img alt="tempsnip.png" src="_images/tempsnip4.png" /></p>
+<p>Withdrawing Ethereum works in exactly the same way, and once completed you should see a balance on your Ethereum account in not more than half a minute.</p>
+</section>
+</section>
+<section id="thing-to-look-out-for-on-the-blockchain">
+<h2>Thing to look out for on the Blockchain<a class="headerlink" href="#thing-to-look-out-for-on-the-blockchain" title="Link to this heading">#</a></h2>
+<p>The most crucial piece of information you possess is your seed phrase. Before I delve into why it’s so important, let’s discuss some concepts related to cryptography. Computers aren’t truly random; they are deterministic machines. This means that if you input the same data into a program, you will always get the same output. To create randomness, computers use a ‘seed,’ which they run through a complex algorithm to generate unpredictable results. Even a slight change in the seed can significantly alter the algorithm’s output, creating the appearance of randomness. However, the same seed will consistently produce the same result.</p>
+<p>Typically, computers use factors like the current time, the processor’s clock cycle, and certain memory data to generate a random number. When generating your private and public keys, the seed for randomness is your seed phrase. Consequently, if you share your seed phrase with anyone and they run it through the same algorithm used by your chosen wallet, they will gain access to both your private and public keys, thereby having complete control over your wallet.</p>
+<p>Another thing to watch out for is what and who you interact with; the crypto world is full of scams, fake giveaways, pump and dump schemes and all sorts of other shady activity. No matter how much people on a project’s Discord, Telegram Channels or private messaging boards try to convince you otherwise, it is wise to stay away from projects that are new and have not been widely used and recommended. The fear of missing out will always be there, but most of the time you will end up wishing that you had missed out and losing money.</p>
+<p>What’s worse is that in the world of crypto you cannot, by design, roll back payments (unless everyone agrees, but that would require convincing all miners that your mistake is important enough to roll back the entire chain (although, it has happened before, see for example the <a class="reference external" href="https://www.gemini.com/cryptopedia/the-dao-hack-makerdao">DAO hard fork</a>). This means that if you accidentally send money to the wrong person, leak your seed phrase and lose your money, or send too much money, there is no way to reverse that, unless the person who received your funds willingly does so.</p>
+<p>Lastly - do not trust people who send you private messages, informing you of opportunities or events, pretending to be customer support or whatever else. They want to get you to either give them your seed phrase or private key outright, or to interact with malicious smart contracts that will give them full control of your funds.</p>
+</section>
+<section id="next-tutorial">
+<h2>Next tutorial<a class="headerlink" href="#next-tutorial" title="Link to this heading">#</a></h2>
+<p>Now that we have everything set up for interacting with the world of cryptocurrencies, in the next tutorial we will learn more about Bitcoin and how it works.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Tutorial_2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2. Bitcoin Transactions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-crypto">Why Crypto?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wallets">Wallets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-wallets">What are wallets</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-a-wallet-necessary">Why is a wallet necessary?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-a-wallet-a-good-idea">Why is a wallet a good idea?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-wallets">Types of wallets</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-ethereum-wallet">Setting up your Ethereum wallet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-bitcoin-wallet">Setting up your Bitcoin wallet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acquiring-some-cryptocurrency">Acquiring some cryptocurrency</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-bitcoin-to-your-own-xdefi-wallet">Adding bitcoin to your own XDEFI wallet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-funds-to-the-electrum-wallet-optional">Adding funds to the Electrum wallet (optional)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-ether-to-your-metamask-wallet">Add Ether to your MetaMask wallet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thing-to-look-out-for-on-the-blockchain">Thing to look out for on the Blockchain</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-tutorial">Next tutorial</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

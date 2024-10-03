@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3. Ethereum &#8212; My Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorial_3';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Decentralised Finance" href="Tutorial_4.html" />
+    <link rel="prev" title="2. Bitcoin Transactions" href="Tutorial_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">My Jupyter Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_1.html">1. Wallet Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_2.html">2. Bitcoin Transactions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. Ethereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_4.html">4. Decentralised Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_5.html">5. Ethereum Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_6.html">6. NFTs and Token Standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Mint_NFT.html">Mint Your NFT</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Tutorial_3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3. Ethereum</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysing-an-ethereum-transaction">Analysing an Ethereum transaction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethereum-accounts">Ethereum accounts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-transactions">Inspecting transactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-get-your-transactions-out-of-the-mempool-in-ethereum">How to get your transactions out of the Mempool in Ethereum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-confirmation-in-ethereum">Block confirmation in Ethereum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-gas-works-in-ethereum">How gas works in Ethereum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sending-assets-to-an-address-in-ethereum">Sending assets to an address in Ethereum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-sets-ethereum-apart-from-bitcoin">What sets Ethereum apart from Bitcoin?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-contracts">Smart contracts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-contracts-and-decentralised-finance">Smart contracts and decentralised finance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whitepapers">Whitepapers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-work-vs-proof-of-stake">Proof of work vs Proof of stake</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-bitcoin-vs-ethereum">Differences between Bitcoin vs Ethereum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defi-and-the-next-tutorial">DeFi and the next tutorial</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ethereum">
+<h1>3. Ethereum<a class="headerlink" href="#ethereum" title="Link to this heading">#</a></h1>
+<p>Similar to the previous tutorial, we’ll explore how to utilise the Ethereum blockchain. We’ll begin by examining the transaction we completed at the end of the last tutorial, attempting to trace how the Ether ended up in our account. Along the way, we’ll explain the differences between Ethereum transactions and Bitcoin transactions.</p>
+<p>Next, we’ll provide a brief overview of how to send assets to another Ethereum account. This information will be useful, for example, when transferring money to a friend or making payments for services.</p>
+<p>Finally, we’ll wrap up by briefly discussing smart contracts and how they distinguish Ethereum from Bitcoin.</p>
+<section id="analysing-an-ethereum-transaction">
+<h2>Analysing an Ethereum transaction<a class="headerlink" href="#analysing-an-ethereum-transaction" title="Link to this heading">#</a></h2>
+<p>At the end of the previous tutorial we converted some Bitcoin into Ether, and sent it to our Ethereum wallet. We analysed what happened in this conversion process on the ‘Bitcoin’ side of things, so for this tutorial, let’s start off by analysing what happened on the Ethereum blockchain during this process. The analogue to Blockchair for Ethereum is called Etherscan, and that’s what we shall be using during this tutorial.</p>
+<p><a class="reference external" href="https://etherscan.io/">Ethereum (ETH) Blockchain Explorer</a></p>
+<p>First, let’s open the MetaMask wallet, copy our address and search for it on Etherscan. You should see something like the following:</p>
+<p><img alt="Untitled" src="_images/Image19.png" /></p>
+<p>This is our Ethereum account, and in this account you can see your transaction history (anyone who knows your address can access this history), the coins you hold, whether you have any NFTs and whether this address has transacted on any other chain (more on all these in the future). For now we’re going to focus on the one incoming transaction, which should be the transaction we completed using THORSwap, sending the Ether that we converted our Bitcoin into to our wallet. If we click on the “Parent Txn hash” or “Parent transaction hash” below, we will be redirected to a page that looks like this:</p>
+<p><img alt="Untitled" src="_images/Image110.png" /></p>
+<p>We recognise many of the features present in the Bitcoin transaction; the gas fee, a block ID (which is just called “Block”), a timestamp and the analogue to “fee per vByte” in “Gas Price”. However, we might also notice that there is only one sender and one receiver. This brings us to the largest difference between the Ethereum and the Bitcoin blockchains.</p>
+</section>
+<section id="ethereum-accounts">
+<h2>Ethereum accounts<a class="headerlink" href="#ethereum-accounts" title="Link to this heading">#</a></h2>
+<p>In the first tutorial, we hinted that you can visualise your wallet as a physical wallet and your crypto account as a bank card. In the second tutorial, we compared Bitcoin to cash. Well, when it comes to Ethereum, it aligns more with the wallet-as-a-bank-account analogy. Ethereum operates more like a bank account, which means it sacrifices some of the privacy features found in Bitcoin.</p>
+<p>Unlike Bitcoin, Ethereum doesn’t keep track of individual ‘bills’ in your account; it only records your total balance. When funds are deposited, your balance increases, and when you make withdrawals, your balance decreases. Practically, this makes it easy to trace transactions associated with a single account because all information is readily available. However, it’s impossible to trace the path of an individual unit of currency since all funds in your balance are perfectly fungible. Additionally, Ethereum transactions typically involve a single sender and a single recipient, making it easier to read individual transactions.</p>
+<p>You can visualise Ethereum accounts using a state diagram. Unlike Bitcoin, there are no discrete ‘bills.’ Instead, Ethereum has a single balance for each coin within its ecosystem. In the initial state, Alice holds 3 Ether and 1 wrapped Bitcoin (a coin on the Ethereum ecosystem pegged to the value of Bitcoin), while Bob holds 2 Ether. After a transaction in which Alice sends 2 Ether to Bob, Bob’s balance increases by 2 Ether, and Alice’s balance decreases by 2 Ether. There are no UTXOs or change involved in this transaction.</p>
+<p><img alt="Untitled" src="_images/Image22.png" /></p>
+</section>
+<section id="inspecting-transactions">
+<h2>Inspecting transactions<a class="headerlink" href="#inspecting-transactions" title="Link to this heading">#</a></h2>
+<p>This doesn’t mean that understanding an Ethereum transaction is always straightforward, however - if you look closely, you will notice that neither the ‘From’ nor the ‘To’ addresses match up with your Ethereum address, let’s first look at the sender address.</p>
+<p><img alt="Untitled" src="_images/Image32.png" /></p>
+<p>The first thing you might notice is that there is a “(pending)” transaction, this is a transaction that has been submitted to the Ethereum mempool(s) (the ‘mempools’ works the same way for Ethereum as it does for Bitcoin) and for whatever reason hasn’t been added to the Blockchain, mostly likely due to the gas fee paid being too low. What you might notice after that is that any transaction that is flagged by Etherscan as “Out” goes to the address that starts with 0xD37BbE…, and that any transaction that is flagged as “In” comes from a different address. Furthermore, the address starting with 0xD37BbE is in the “To” field in the THORSwap transaction on our own address. We need one more piece before we can put the puzzle together - the sender address has a lot of Ethereum in it, but if we look a the 0xD37BbE address itself then it has no Ethereum in it at all. This is all indicative that the 0xD37BbE address is some kind of middle man (only confirmed by the fact that Etherscan says “Contract” rather than “Address” next to it - the specifics of this will be explained in the next tutorial) and the sender address is the THORSwap controlled address, which holds a reserve of Ethereum that is used to pay people for their swaps (imagine HSBC dollar reserves). The “In” transactions are most likely people topping up the reserves when they fall too low.</p>
+<p>Now if we go back to the original transaction:</p>
+<p><img alt="Untitled" src="_images/Image110.png" /></p>
+<p>Underneath the 0xD37BbE… address, there is a little line that says “Transfer … From … To …” what this means is that the address 0xD37BbE automatically forwarded the money sent to it by the address 0x88EDe to, in the screenshot, 0xA6dA6 - which in your case, if you are following along, should be your own Ethereum address.</p>
+<section id="how-to-get-your-transactions-out-of-the-mempool-in-ethereum">
+<h3>How to get your transactions out of the Mempool in Ethereum<a class="headerlink" href="#how-to-get-your-transactions-out-of-the-mempool-in-ethereum" title="Link to this heading">#</a></h3>
+<p>Before we go further, let’s quickly circle back to the pending transactions. It can quite often happen that you get your transaction stuck in the mempool, or you don’t want it to be executed because you made a mistake. While in Bitcoin, you can reuse the same UTXO with a higher fee to override a transaction, Ethereum, which doesn’t use UTXOs, operates differently. Ethereum keeps track of transactions through a ‘nonce,’ which is essentially a transaction counter. Each account has its own nonce, starting with 0 for the first transaction and incrementing with each subsequent transaction.</p>
+<p>If a transaction from the same account is in the mempool and has a nonce that has already been used, it will be considered invalid and not added to the Ethereum blockchain. Therefore, if you have a transaction stuck in the mempool, you can send a new transaction with the same nonce but a higher transaction fee. This increases the chances of the new transaction being picked up first, effectively canceling out the stuck transaction. Although there is always the chance that a miner doesn’t receive your second transaction fast enough so the first one gets put in a block before the second one.</p>
+</section>
+<section id="block-confirmation-in-ethereum">
+<h3>Block confirmation in Ethereum<a class="headerlink" href="#block-confirmation-in-ethereum" title="Link to this heading">#</a></h3>
+<p>If you look at the transaction, next to the date at which it was sent there should also be some text that says “Confirmed within N secs”. This means that it spent N seconds in the mempool before it was added to the Blockchain. As previously discussed, the “block time” (the amount of time it takes to mine a block) in Bitcoin was about 10 minutes. In Ethereum, it is about 14 seconds. It is important to ask, why is there such a difference between Bitcoin and Ethereum? It’s a question of security - a longer block time means it’s harder for someone to manipulate the network. At the same time though, a longer block time means that it’s more inconvenient to use for payments. Hence, it all comes down to design decisions. Note that does not mean that Ethereum is not secure. If you’re interested in exactly how a faster block time affects Ethereum’s security see here: <a class="reference external" href="https://blog.ethereum.org/2015/09/14/on-slow-and-fast-block-times">https://blog.ethereum.org/2015/09/14/on-slow-and-fast-block-times</a>.</p>
+</section>
+</section>
+<section id="how-gas-works-in-ethereum">
+<h2>How gas works in Ethereum<a class="headerlink" href="#how-gas-works-in-ethereum" title="Link to this heading">#</a></h2>
+<p>Just like in Bitcoin, the miners (who are now called ‘validators’, due to an update in the way Ethereum “mining” works) who add your transaction to the chain need to be compensated somehow, and just like Bitcoin there are three main ways that that is achieved. The first and simplest, is that every time someone mines a block, they are given 2ETH out of thin air. The second way that validators are compensated is gas fees, and the the third way they are compensated is by placing their own transactions in the middle of blocks to earn money from the price movements. We will only discuss gas fees, to read about the third form of compensation, you can click below: <a class="reference external" href="https://ethereum.org/en/developers/docs/mev/">https://ethereum.org/en/developers/docs/mev/</a>.</p>
+<p>The gas price (note the terminology) in Ethereum can be broken down into two parts; a “base fee” that everyone needs to pay be be able to be included in the block, and then a “tip”. This is different from Bitcoin, which has no lower bound on the transaction fee to be included in a block. The “base fee” goes up if previous blocks have been full, and goes down if they have been empty. The crucial aspect of the base fee is that it doesn’t go to the validators (Ethereum miners); instead, it is entirely removed from circulation, or in Ethereum terminology, ‘burned.’ This helps counteract the inflationary impact of creating 2 ETH every time a block is mined. On the other hand, the ‘tip’ is similar to the transaction fee in Bitcoin. It represents the amount users are willing to pay in addition to the base fee to have their transaction included in the block. Users can compete based on the price they offer to be included sooner.</p>
+<p>This setup makes it so that gas prices vary wildly during the day. If we look at the average gas price over an hour from a <a class="reference external" href="https://dune.com/hildobby/gas">Dune dashboard</a>, we see that gas prices can more than double during the day (interestingly 12:00 UTC is 8:00 New York time, whether this is the effect of just New York or the entirety of America waking up or something else entirely, I cannot say). So generally when you’re transacting, it is advised that you try and do it early in the morning.</p>
+<p><img alt="Untitled" src="_images/Image42.png" /></p>
+<p>Further (just like Bitcoin) Ethereum charges depending on the complexity of the transaction. This is especially important, since Ethereum is made for having code executed by it. Every computational operation, like writing to memory, has a gas unit attached to it. The gas price represents the cost of a computational unit (referred to as ‘gas’ units), and the total gas fee is determined by multiplying the gas fee by the number of gas units consumed in the transaction.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Gas</span> <span class="pre">fee</span> <span class="pre">=</span> <span class="pre">gas</span> <span class="pre">price</span> <span class="pre">·</span> <span class="pre">gas</span> <span class="pre">units</span> <span class="pre">consumed</span></code></p>
+<p>The gas price is usually denominated in Gwei, which is one billionth of an Ether.</p>
+</section>
+<section id="sending-assets-to-an-address-in-ethereum">
+<h2>Sending assets to an address in Ethereum<a class="headerlink" href="#sending-assets-to-an-address-in-ethereum" title="Link to this heading">#</a></h2>
+<p>This section does not require you to follow along. Now let’s say that we want to send some money to a friend, or pay for a service on Ethereum using MetaMask. Just like with Bitcoin, it is fairly straightforward. The only thing you need to provide is the amount that you’re sending, and the other person’s address. First, you want to select the ‘send’ option in your MetaMask wallet.</p>
+<p><img alt="Screenshot 2023-08-29 182738.png" src="_images/Screenshot_2023-08-29_182738.png" /></p>
+<p>On the next screen, you will get to choose who you send your money to by entering their address in the field on the top. You can also enter an <a class="reference external" href="https://ens.domains/">Ethereum Naming Service</a> name, which is in the format of “name.eth”.</p>
+<ul>
+<li><p><a class="reference external" href="https://ens.domains/">More on ENS</a></p>
+<p>The Ethereum Naming Service allows you to map human readable text into Ethereum addresses, so you can, for example be called Marten.eth instead of 0xad123… for ease of access. You can also integrate your existing .com or other domain into the ENS to be able to have names like <a class="reference external" href="http://Marten.com">Marten.com</a> (if you own that domain already).</p>
+</li>
+</ul>
+<p>After you enter the address which you want to send money to, you will be directed to the screen where you enter the amount you want to send.</p>
+<p><img alt="Untitled" src="_images/Image52.png" /></p>
+<p>Finally, you will reach the last confirmation screen where you can review the transaction details and confirm your acceptance. If everything looks good and you approve, the transaction is sent to the mempool, with the hope that it will soon be added to the blockchain.</p>
+<p><img alt="Untitled" src="_images/Image62.png" /></p>
+</section>
+<section id="what-sets-ethereum-apart-from-bitcoin">
+<h2>What sets Ethereum apart from Bitcoin?<a class="headerlink" href="#what-sets-ethereum-apart-from-bitcoin" title="Link to this heading">#</a></h2>
+<p>Throughout the preceding section, we’ve discussed Ethereum’s main advantage and why the upcoming tutorials in this series will primarily focus on Ethereum. That advantage lies in Ethereum’s Turing completeness, which means any piece of code you can run on your computer can also be executed on the Ethereum network. In practical terms, the code you submit to Ethereum is executed by someone else in the network, and the results can be stored on the blockchain. From a theoretical standpoint, Ethereum isn’t just a decentralised database; it’s also a decentralised computer. It’s not merely the Ethereum ledger; it’s the Ethereum Virtual Machine.</p>
+</section>
+<section id="smart-contracts">
+<h2>Smart contracts<a class="headerlink" href="#smart-contracts" title="Link to this heading">#</a></h2>
+<p>Smart contracts is the name given to programmes that live on the Ethereum Blockchain. Oftentimes, when smart contracts are mentioned, they conjure images of lawyers writing agreements that will be automatically enforced by code somewhere on the internet. There was even a time when people were discussing encompassing entire legal systems into smart contracts. Reality is often more mundane. A smart contract is nothing more than a piece of code on a blockchain, the execution of which is triggered by a transaction on the blockchain directly interacting with it - so they can’t even react to something happening on the blockchain that does not directly interact with it, and which can only read or write data on/to the blockchain. Indeed, in computer science jargon, it is probably better to use the word “script” for smart contracts, but the name has stuck and changing it now is near-impossible.</p>
+<p>This doesn’t imply that smart contracts can’t perform remarkable tasks. However, it’s important to note that despite their incredible potential, they still have significant limitations and inefficiencies.</p>
+<p>First, there’s the issue of storage cost. Generally, storing 1MB of data on the Ethereum blockchain costs around €57,000, making it financially unviable for large and complex applications.</p>
+<p>Additionally, smart contracts are confined to their own blockchain. They lack awareness of the external world. For example, if you want your script to execute an action based on the price of gold, it can’t do so without external assistance because the price of gold isn’t available on the blockchain.</p>
+<p>Lastly, from a legal perspective, there is no comprehensive legal framework governing smart contracts. This means that smart contracts aren’t legally binding contracts.</p>
+<p>A few years ago, there were ideas in the crypto world about using Non-Fungible Tokens (NFTs, which we’ll explain in the 6th tutorial) to track house ownership. However, a fundamental problem arises: while you can sell the NFT associated with your house, there’s no legally binding mechanism that compels you to transfer ownership of the actual house.</p>
+<section id="smart-contracts-and-decentralised-finance">
+<h3>Smart contracts and decentralised finance<a class="headerlink" href="#smart-contracts-and-decentralised-finance" title="Link to this heading">#</a></h3>
+<p>What smart contracts do enable is decentralised finance, or DeFi for short (as opposed to the traditional finance, or TradFi, that most people are more familiar with). As the name suggests, the greatest innovation of decentralised finance is that capital is decentralised. For example, let’s say that you want to convert euros into dollars. Instead of having to go through a broker, you can directly exchange on the crypto-euro and crypto-dollar market yourself, eliminating the middleman. While decentralisation is a key factor for many, it’s essential to exercise caution and discern what truly constitutes DeFi (Decentralized Finance) as opposed to what merely claims to be DeFi.</p>
+<p>One of Ethereum’s significant advantages, stemming from its status as more than just a computer, is that you’re not limited to using only Ether on the Ethereum blockchain. You have the ability to create new currencies, often referred to as tokens, on the Ethereum platform. Nevertheless, Ether remains the native currency, and gas fees can only be paid in Ether. These tokens can be associated with various applications or even pegged to real-world assets.</p>
+</section>
+<section id="whitepapers">
+<h3>Whitepapers<a class="headerlink" href="#whitepapers" title="Link to this heading">#</a></h3>
+<p>The source of detailed information about a token should be something called a whitepaper. When DeFi projects release, it’s customary to put out a whitepaper at the same time, explaining what the project is, how it functions and what the token attached to the project should do. Before diving into any DeFi project, it’s a good idea to at least try and read the whitepapers of protocols you interact with, as it helps spot scams and frauds. When the whitepaper doesn’t make any sense or reads more like a marketing piece, that is generally a bad sign, and can be a warning to would-be project participants. Although concerning, poorly constructed whitepapers are not always evidence of a fraudulent project — some excellent projects also present badly in whitepapers. However, it’s important to note that these projects typically maintain some form of documentation elsewhere. Since these projects are open source, any code submitted to the blockchain is publicly viewable. Therefore, if developers intend for the project to have a lasting presence, they will usually release documentation.</p>
+</section>
+</section>
+<section id="proof-of-work-vs-proof-of-stake">
+<h2>Proof of work vs Proof of stake<a class="headerlink" href="#proof-of-work-vs-proof-of-stake" title="Link to this heading">#</a></h2>
+<p>The final topic we’d like to discuss before concluding is the distinction between proof of work (PoW) and proof of stake (PoS) consensus mechanisms.</p>
+<p>Starting with Bitcoin and PoW, in PoW-based blockchains, miners compete to select transactions from the mempool and find a number that solves a cryptographic problem. The process of finding this solution isn’t systematic, so miners essentially guess until they succeed. Once a miner finds a valid solution, they include it in a block with transactions and publish that block, which is then added to the blockchain. The drawback of PoW is that due to the guessing nature of the process, multiple miners duplicate work, and when one miner succeeds, the efforts of others become obsolete. This leads to high energy consumption, with Bitcoin estimated to consume about <a class="reference external" href="https://www.forbes.com/advisor/investing/cryptocurrency/bitcoins-energy-usage-explained/">127 TWh per year</a>, equivalent to the energy consumption of countries like Argentina or Ukraine, each with a population of about 45 million. Considering Bitcoin processes roughly 900 million transactions annually, this energy use equates to roughly 20 transactions per person per year, consuming as much energy as an average Ukrainian household in 2018. Clearly, this model isn’t sustainable.</p>
+<p>Now, let’s shift our focus to PoS-based blockchains. In PoS blockchains, only one person (or validator) validates transactions and adds them to the blockchain at a time. To ensure that validators don’t validate incorrect or malicious transactions, each validator is required to ‘stake’ a certain amount of cryptocurrency, in the case of Ethereum, Ether, as collateral in a smart contract. Although anyone can verify the transactions validated by the miner, if a fault is detected, they can challenge the validator. If a challenge is successful, the validator loses a portion of their staked collateral. To prevent a single validator from controlling all validation rewards, the system periodically rotates validators, selecting from those who have staked assets in the specified smart contract. For instance, in Ethereum, becoming a validator requires a deposit of 32 ETH, and there are no additional rewards for depositing more. As for the frequency of validator changes, Ethereum’s system is more intricate and involves committees, epochs, slots, and other technical terms that we won’t delve into here. If you’re interested in becoming a validator yourself and potentially earning around 4% APY (as of August 2023), here is a useful link to get started:</p>
+<p><a class="reference external" href="https://ethstaker.gitbook.io/ethstaker-knowledge-base/">EthStaker knowledge base</a></p>
+</section>
+<section id="differences-between-bitcoin-vs-ethereum">
+<h2>Differences between Bitcoin vs Ethereum<a class="headerlink" href="#differences-between-bitcoin-vs-ethereum" title="Link to this heading">#</a></h2>
+<p>To summarise the differences between Ethereum and Bitcoin, we can categorise the main features of each blockchain as follows:</p>
+<p>Bitcoin:</p>
+<ol class="arabic simple">
+<li><p>UTXO based</p>
+<ol class="arabic simple">
+<li><p>Offers better privacy for an individual user</p></li>
+<li><p>Makes tracing what money was used for easy</p></li>
+<li><p>Can send money to multiple recipients at the same time</p></li>
+</ol>
+</li>
+<li><p>Limited programming</p>
+<ol class="arabic simple">
+<li><p>Lower transactions fees</p></li>
+<li><p>Harder or impossible to build applications on top of</p></li>
+<li><p>Constrained to mostly be a currency</p></li>
+</ol>
+</li>
+<li><p>10 minute block times</p>
+<ol class="arabic simple">
+<li><p>Slightly more security</p></li>
+<li><p>Less throughput in terms of transactions per second</p></li>
+<li><p>Slower transaction confirmation</p></li>
+</ol>
+</li>
+<li><p>Inherently deflationary as supply is fixed</p></li>
+<li><p>Proof of work based</p>
+<ol class="arabic simple">
+<li><p>Environmentally inefficient, as a lot of work is for naught</p></li>
+</ol>
+</li>
+</ol>
+<p>Ethereum:</p>
+<ol class="arabic simple">
+<li><p>Account based</p>
+<ol class="arabic simple">
+<li><p>Offers lower privacy for an individual user</p></li>
+<li><p>Makes tracing what money impossible</p></li>
+<li><p>Makes keeping track of everything simpler</p></li>
+</ol>
+</li>
+<li><p>Fully Turing complete</p>
+<ol class="arabic simple">
+<li><p>Higher transactions fees due to higher complexity</p></li>
+<li><p>Possible to build applications on top of</p></li>
+<li><p>Contains an entire decentralised financial system</p></li>
+</ol>
+</li>
+<li><p>14 second block times</p>
+<ol class="arabic simple">
+<li><p>Slightly less security</p></li>
+<li><p>Higher throughput in terms of transactions per second</p></li>
+<li><p>Fast transaction confirmation</p></li>
+</ol>
+</li>
+<li><p>Can be inflationary or deflationary depending on network demand (see here <a class="reference external" href="https://ethereum.org/en/roadmap/merge/issuance/">https://ethereum.org/en/roadmap/merge/issuance/</a>)</p></li>
+<li><p>Proof of stake based</p>
+<ol class="arabic simple">
+<li><p>Uses approximately 2000 times less energy and is thus massively better for the  environment</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="defi-and-the-next-tutorial">
+<h2>DeFi and the next tutorial<a class="headerlink" href="#defi-and-the-next-tutorial" title="Link to this heading">#</a></h2>
+<p>In the next tutorial, we will delve deeper into Ethereum and explore various decentralised finance (DeFi) applications. We will cover everything necessary to navigate and conduct transactions within the DeFi ecosystem.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Tutorial_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">2. Bitcoin Transactions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Tutorial_4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">4. Decentralised Finance</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysing-an-ethereum-transaction">Analysing an Ethereum transaction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethereum-accounts">Ethereum accounts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspecting-transactions">Inspecting transactions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-get-your-transactions-out-of-the-mempool-in-ethereum">How to get your transactions out of the Mempool in Ethereum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#block-confirmation-in-ethereum">Block confirmation in Ethereum</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-gas-works-in-ethereum">How gas works in Ethereum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sending-assets-to-an-address-in-ethereum">Sending assets to an address in Ethereum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-sets-ethereum-apart-from-bitcoin">What sets Ethereum apart from Bitcoin?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-contracts">Smart contracts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#smart-contracts-and-decentralised-finance">Smart contracts and decentralised finance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#whitepapers">Whitepapers</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#proof-of-work-vs-proof-of-stake">Proof of work vs Proof of stake</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differences-between-bitcoin-vs-ethereum">Differences between Bitcoin vs Ethereum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defi-and-the-next-tutorial">DeFi and the next tutorial</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

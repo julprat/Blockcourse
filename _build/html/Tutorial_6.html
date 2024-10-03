@@ -1,0 +1,580 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6. NFTs and Token Standards &#8212; My Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorial_6';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Cryptography" href="Cryptography.html" />
+    <link rel="prev" title="5. Ethereum Scaling" href="Tutorial_5.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">My Jupyter Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_1.html">1. Wallet Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_2.html">2. Bitcoin Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_3.html">3. Ethereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_4.html">4. Decentralised Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_5.html">5. Ethereum Scaling</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6. NFTs and Token Standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Mint_NFT.html">Mint Your NFT</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Tutorial_6.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>6. NFTs and Token Standards</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-nfts">What are NFTs?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-an-nft-contain">What does an NFT contain?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-you-actually-own-with-an-nft">What do you actually own with an NFT?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-opensea-creates-your-nfts">How OpenSea creates your NFTs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-nft-usecases">Other NFT usecases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#token-standards">Token standards</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="nfts-and-token-standards">
+<h1>6. NFTs and Token Standards<a class="headerlink" href="#nfts-and-token-standards" title="Link to this heading">#</a></h1>
+<p>This tutorial is an introduction to NFTs. We will first look at the Bored Ape Yacht Club collection of NFTs and use this as an examination of what NFTs are. We will then discuss how to create your own NFT through OpenSea. Next, we discuss NFT usecases other than art. Finally, we will learn about different Ethereum token standards.</p>
+<section id="what-are-nfts">
+<h2>What are NFTs?<a class="headerlink" href="#what-are-nfts" title="Link to this heading">#</a></h2>
+<p>Let’s revisit Bitcoin for a moment: in the Bitcoin architecture, cash is equivalent to money. You can track the history of every individual “bill” or UTXO (Unspent Transaction Output) to see where it has been spent. Now, shifting our focus to Ethereum, it operates with accounts where all the funds in any account are considered fungible. In other words, in your account, 2 ETH is always 2 ETH, rather than consisting of, say, 2 bills of 1 ETH each or one bill of 1.5 ETH and another of 0.5 ETH. How does this relate to NFTs? NFTs essentially introduce the concept of unique “bills” to Ethereum. From a computer science standpoint, no two NFTs are exactly the same, even if they are meant to represent the same thing in practical terms. Since the Ethereum ecosystem already has Ether as its native currency, NFTs are not primarily used for transactions; instead, they serve various purposes, such as art ownership, in-game assets, proof of attendance at events, and online identity verification.</p>
+<p>To illustrate this, consider the Bored Ape Yacht Club collection, where the most expensive Bored Ape was sold for $3,408,000.</p>
+<p><img alt="Image" src="_images/Image26.png" /></p>
+<p>The Bored Ape Yacht Club was the first collection of digital art that really took off. Each image of a Bored Ape is like a unique bill, in spite of the fact that the same source and share many design features. Let’s consider stablecoins again, like DAI. Every DAI in existence originates from a single contract that “mints” DAI. However, any two DAI tokens are indistinguishable from each other. In contrast, when it comes to Bored Apes and NFTs in general, each token minted is unique and distinguishable from all others. In other words, NFTs are non-fungible. Below is the contract responsible for minting Bored Apes.</p>
+<p><a class="reference external" href="https://etherscan.io/address/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d"></a></p>
+<p>Alone, it’s nothing special, but this little piece of code has made some people fabulously rich. Since quite a few other NFT collections have copied the Bored Ape Yacht Club contract code for their own NFTs, let’s examine what buying a Bored Ape NFT actually gives you. Figuring this out takes a bit of knowledge about the Ethereum programming language, Solidity, and how to read smart contracts, which is outside the scope of this tutorial, but if you are interested, there are a lot of good tutorials on how to write code in Solidity out there - for instance, <a class="reference external" href="https://cryptozombies.io/">CryptoZombies.io</a>.</p>
+<section id="what-does-an-nft-contain">
+<h3>What does an NFT contain?<a class="headerlink" href="#what-does-an-nft-contain" title="Link to this heading">#</a></h3>
+<p>First of all, NFTs use the Ethereum technical standard ERC-721. In contrast, fungible tokens use the ERC-20 standard. The main pieces of information that an NFT requires that a normal fungible token does not are the following two functions.</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>function tokenByIndex(uint256 _index) external view returns (uint256);
+function tokenURI(uint256 _tokenId) external view returns (string);
+</pre></div>
+</div>
+<p>The first function “tokenByIndex” keeps track of all NFTs. For example, if you mint 100 different NFTs, each of them will have a unique index - NFT 4 will be different from NFT 24. This is different from normal tokens, where if you create 100 tokens they will all be exactly the same. This already makes the NFT unique. However, I am not sure anyone would be willing to pay $3,408,000 for a serial number.</p>
+<p>This is where the tokenURI plays a crucial role. It stores metadata about the NFT. If we delve deeper into the contract, we encounter a variable known as ‘baseURI,’ which can be modified by calling the ‘setBaseURI()’ function. This means that the contract owner has the ability to change the baseURI, which can be somewhat problematic. To illustrate this, if we navigate to the contract’s transactions on Etherscan and examine the earliest transactions, we can see that the baseURI was only set in the third transaction.</p>
+<p><img alt="tempsnip.png" src="_images/tempsnip8.png" /></p>
+<p>Now what is this “baseURI”? Well, if “tokenURI” was the metadata of one token, then the “baseURI” is the metadata for all tokens together. If we dig a bit deeper, we see that the baseURI is “ipfs://QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/” which is part of an internet protocol for file hosting. We can access it in our browser with the following URI:</p>
+<p><a class="reference external" href="https://ipfs.io/ipfs/QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/">/ipfs/QmeSjSinHpPnmXmspMjwiXyN6zS4E9zccariGR3jxcaWtq/</a></p>
+<p><img alt="Image" src="_images/Image_1.png" /></p>
+<p>Now this might not look like much, but this is actually the directory where all the metadata for Bored Apes is stored. Each file is one ape. For example if we click on Bored Ape 1001. We get the following MetaData.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="s2">&quot;ipfs://QmZpfxHaiASnGQk3E6Dxikr1k1mekapPDo8d5zWP6n4pd7&quot;</span><span class="p">,</span><span class="nt">&quot;attributes&quot;</span><span class="p">:</span>
+<span class="w">	</span><span class="p">[{</span><span class="nt">&quot;trait_type&quot;</span><span class="p">:</span><span class="s2">&quot;Background&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;Orange&quot;</span><span class="p">},{</span><span class="nt">&quot;trait_type&quot;</span><span class="p">:</span><span class="s2">&quot;Hat&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;Fez&quot;</span><span class="p">},</span>
+<span class="w">	</span><span class="p">{</span><span class="nt">&quot;trait_type&quot;</span><span class="p">:</span><span class="s2">&quot;Mouth&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;Bored Unshaven&quot;</span><span class="p">},{</span><span class="nt">&quot;trait_type&quot;</span><span class="p">:</span><span class="s2">&quot;Eyes&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;Robot&quot;</span><span class="p">},</span>
+<span class="w">	</span><span class="p">{</span><span class="nt">&quot;trait_type&quot;</span><span class="p">:</span><span class="s2">&quot;Fur&quot;</span><span class="p">,</span><span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="s2">&quot;Brown&quot;</span><span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We can read out that it is an ape mounted on an orange background, wearing a fez hat, that has ‘robot eyes’, brown fur and a ‘bored’ and unshaven mouth. Quite the picture indeed. Now let’s see if it actually looks like that by following the URI from the “image” tag.</p>
+<p><a class="reference external" href="https://ipfs.io/ipfs/QmZpfxHaiASnGQk3E6Dxikr1k1mekapPDo8d5zWP6n4pd7"></a></p>
+<p><img alt="Image" src="_images/Image27.png" /></p>
+<p>This is Bored Ape 1001. If we want to know who owns this NFT, the easiest way is through an NFT marketplace like OpenSea.</p>
+<p><a class="reference external" href="https://opensea.io/">OpenSea, the largest NFT marketplace</a></p>
+<p>We can search for the Bored Ape Yacht Club NFT series.</p>
+<p><img alt="Image" src="_images/Image35.png" /></p>
+<p>and from there, search for Ape #1001</p>
+<p><img alt="Image" src="_images/Image45.png" /></p>
+<p>Which gives us the owner as user “342BDC”.</p>
+<p><img alt="Image" src="_images/Image55.png" /></p>
+<p>We can click on their name, and look their address up on Etherscan. We can then navigate to their token holdings:</p>
+<p><a class="reference external" href="https://etherscan.io/address/0x342BDCeD4747dd15A04677D9e5E815A728d647f0"></a></p>
+<p><img alt="tempsnip.png" src="_images/tempsnip14.png" /></p>
+<p>we find that they do indeed have the Bored Ape in their NFT collection, along with a bunch of other NFTs. My personal favourite is the cat from ‘Stinky’s Art Gallery’, and I have some concerns about this user’s ‘Fantasy Wafu’.</p>
+<p><img alt="Image" src="_images/Image65.png" /></p>
+</section>
+<section id="what-do-you-actually-own-with-an-nft">
+<h3>What do you actually own with an NFT?<a class="headerlink" href="#what-do-you-actually-own-with-an-nft" title="Link to this heading">#</a></h3>
+<p>The big question with NFTs is, what do you actually own? When digital art and NFTs first came out, a lot of people on the internet, who had bought NFTs, were annoyed that others were posting pictures of NFT art that they “owned”. However, as of Q4 2023 there is no specific regulation pertaining to NFTs and copyright - it is perfectly legal to screenshot an NFT and repost the image online.</p>
+<p>What makes things a bit complicated is that companies, such as Bored Ape Yacht Club can design their own licence in such a way that you do have ownership rights over the art. Although as of August 2023, this has not been tested in court to the best of the authors knowledge. Yet this highlights the point even more that the ownership of an NFT becomes complicated and can often times be down to the exact wording of some commercial licence.</p>
+<p>Nonetheless, having an NFT in your wallet is not a priori the same as owning it. In terms of data on the blockchain, if you own an NFT, what you own is the metadata. Although anyone else can also see it, or post it on the internet, only you can say that the NFT attached to this metadata is held in a wallet that you control. Now once an NFT has been minted, you cannot change its “tokenURI” - the URI where the token’s metadata is stored on the web (very far away from anything blockchain) - but what’s in the URI can change. For example, the address 55 Rue du Faubourg Saint-Honoré, 75008 Paris, refers to a specific spot, but the building at that spot can change, so the address (or URI) is no longer an indicator of what it was, yet it does not cease to exist. This challenge is somewhat addressed by the IPFS (InterPlanetary File System) internet protocol, which significantly enhances the immutability of the data. However, the key issue remains that only a reference to the data is stored on the blockchain.</p>
+<p>So why isn’t all the information about NFTs stored directly on the blockchain? The primary reason is cost. Storing data on the blockchain can be expensive, with each kilobyte of data costing a significant amount in cryptocurrency. For instance, a 200-kilobyte JPEG image, such as the Bored Ape 1001, could cost approximately 6.4 ETH to store on-chain. Considering that there are 10,000 Bored Apes in the collection, this would amount to a staggering 64,000 ETH, equivalent to around 10,000 euros for minting a single NFT or approximately one hundred million euros for the entire collection at the time of writing. This cost factor makes storing large volumes of data directly on-chain impractical and financially prohibitive.</p>
+</section>
+<section id="how-opensea-creates-your-nfts">
+<h3>How OpenSea creates your NFTs<a class="headerlink" href="#how-opensea-creates-your-nfts" title="Link to this heading">#</a></h3>
+<p>One can of course create their own NFT by first deploying their own smart contract, and then calling functions on that smart contract to create a list of NFTs. As you can imagine, that requires more than trivial computer networking and programming skills. Thankfully, OpeanSea makes minting an NFT straightforward. Below is a tutorial on how do so:</p>
+<p><a class="reference external" href="https://opensea.io/learn/nft/how-to-create-an-nft">How do I create an NFT?</a></p>
+<p>If you go through this process one thing you might notice is that it doesn’t cost anything to mint with them. This is due to OpenSea’s use of a technique known as ‘lazy minting.’ In this approach, the NFT creator only establishes the template for the NFT, and it’s the buyer of the NFT who, upon completing the transaction to purchase the NFT, actually initiates the minting process and adds it to the blockchain. Importantly, this also means that it’s the buyer who bears the associated minting costs.</p>
+</section>
+</section>
+<section id="other-nft-usecases">
+<h2>Other NFT usecases<a class="headerlink" href="#other-nft-usecases" title="Link to this heading">#</a></h2>
+<p>NFTs aren’t exclusively limited to art; another prevalent use case is the creation of unique in-game items. A notable genre of games that has emerged within the cryptocurrency realm is known as ‘play-to-earn’ games. In these games, players accumulate items represented as NFTs, which they can later sell to other players. While these games may not serve as a primary source of income, they can provide a welcome supplement, enabling players to earn an additional 20 euros or so per week from their gameplay.</p>
+<p>One such example is ‘Gods Unchained’, which is a strategy card game similar to Heathstone. In Gods Unchained, every card is an NFT and can be sold on an in-game marketplace to other players.</p>
+<p><a class="reference external" href="https://godsunchained.com/">Gods Unchained TCG</a></p>
+<p>A much more famous game is Crypto-Kitties, where players get to collect virtual cats and breed them with other cats, to get desirable traits and then swap said cats with each other. This is sort of like the Crypto version of Tamagochi. Although it is not as popular as it once was, it’s still a popular game. The most expensive Crypto-Kitty was sold for 600 ETH, which at the time was 1.3 million USD, and is called Dragon (pictured below).</p>
+<p><a class="reference external" href="https://www.cryptokitties.co/">CryptoKitties | Collect and breed digital cats!</a></p>
+<p><img alt="Image" src="_images/Image74.png" /></p>
+<p>A more Facebook Metaverse-esque take on crypto games is ‘Decentraland’. In ‘Decentraland’, players can develop and trade virtual pieces of land. Assets which can be used to build on your own plot of land, such as plants or pieces of a house, can be bought on the games marketplace for a cryptotoken called MANA.</p>
+<p><a class="reference external" href="https://decentraland.org/">Welcome to Decentraland</a></p>
+<p><a class="reference external" href="https://www.coinbase.com/price/decentraland">Decentraland</a></p>
+<p>NFTs can also be used for distributing event proof of attendance tokens. A lot of tech and other conferences in recent history have started sending attendees NFTs to prove to others that they attended. These are called POAPs or Proof Of Attendance Protocols.</p>
+<p>Another recent interesting use case of NFTs is loyalty programmes, for example Air Baltic, an airline from Latvia, has come up with a series of NFTs called Planies, which give loyalty points for free every month and other benefits ontop.</p>
+<p><a class="reference external" href="https://www.airbaltic.com/en/planies-nft">Planies NFT - an innovative loyalty experience | airBaltic</a></p>
+</section>
+<section id="token-standards">
+<h2>Token standards<a class="headerlink" href="#token-standards" title="Link to this heading">#</a></h2>
+<p>Now that we’ve covered NFTs and we’ve also touched upon tokens like stablecoins or governance tokens. So what makes a token?</p>
+<p>Ethereum has different token standards for different tokens, with different capabilities. For example, by following standard ERC-721, you make an NFT. While the classic cryptocurrency token is often an ERC-20 token, with stablecoins and governance tokens as prominent examples following the ERC-20 token standard, it’s worth noting that anyone can propose a new token standard and add additional functionality through an ERC proposal. The term ‘ERC’ stands for ‘Ethereum Request for Comment,’ and despite the large number of ERCs, there are currently only nine established token standards.</p>
+<p>The ERC-20 token standard serves as the foundational token type on Ethereum, characterized by its fungibility and simplicity. Popular coins like USDC, USDT, DAI, and BUSD adhere to the ERC-20 Token standard.</p>
+<p>The second most common standard is ERC-721, which is the basic NFT token standard, used for the vast majority of NFTs, but containing a few inefficiencies in terms of the gas cost of creating one.</p>
+<p>The ERC-777 standard is an extension of the ERC-20 Token standard, and is fully backwards compatible with it. The improvement over ERC-20 is that ERC-777 tokens can be sent on behalf of another user, with the consent of the owner, of course.</p>
+<p>Among the token standards, ERC-1633 stands out as it represents a Re-fungible token or RFT. In simpler terms, this is an NFT that enables shared ownership among different addresses.</p>
+<p>The other token standards are more technically oriented. ERC-1155 allows a single smart contract to incorporate both ERC-20 and ERC-721 token standards. ERC-918 serves as a framework for creating alternatives to Initial Coin Offerings (ICOs) by enabling contracts to distribute tokens through a ‘mining’ process. ERC-1178 extends a programming paradigm to tokens. ERC-1203 builds upon ERC-1178 and ERC-20. Finally, ERC-3754 offers an alternative to the NFT token standard, presenting a more abstract representation of an NFT.</p>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>In summary, the insights shared within these tutorials are supposed to offer a comprehensive journey through the ever-evolving cryptocurrency and blockchain domain. It’s worth noting that since the creation of these tutorials, the field may have evolved further - we’ve covered the ways in which it remains cutting-edge, and ever changing (for better, and sometimes worse!). The primary objective of this tutorial series is to shed light on the ongoing trade-offs among scalability, security, and decentralisation within blockchain networks, where Layer 2 solutions like Arbitrum and Polygon show promise, albeit with their unique challenges.
+Finally, the exploration of NFTs underscores the versatility of crypto systems, dispelling the notion that they are confined to art, especially in the realm of pay-to-earn gaming. This tutorial also underscores the interconnected nature of the crypto world.
+These combined insights depict the dynamic blockchain landscape, illustrating its potential for innovation and disruption across various industries. With this foundational knowledge, I encourage you to embark on your investigations, while remaining cautious.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Tutorial_5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">5. Ethereum Scaling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Cryptography.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Cryptography</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-nfts">What are NFTs?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-an-nft-contain">What does an NFT contain?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-do-you-actually-own-with-an-nft">What do you actually own with an NFT?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-opensea-creates-your-nfts">How OpenSea creates your NFTs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-nft-usecases">Other NFT usecases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#token-standards">Token standards</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

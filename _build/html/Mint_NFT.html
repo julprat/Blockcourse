@@ -1,0 +1,928 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Mint Your NFT &#8212; My Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Mint_NFT';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Cryptography" href="Cryptography.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">My Jupyter Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_1.html">1. Wallet Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_2.html">2. Bitcoin Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_3.html">3. Ethereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_4.html">4. Decentralised Finance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_5.html">5. Ethereum Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_6.html">6. NFTs and Token Standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Cryptography.html">Cryptography</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Mint Your NFT</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Mint_NFT.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mint Your NFT</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-we-dive-into-coding">Before we dive into coding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-your-crypto-wallet">Open your crypto wallet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-your-avatar">Design your avatar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-a-source-code-editor">Download a source code editor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-node-js-on-your-computer">Install Node.JS on your computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-an-ethereum-node-with-alchemy">Connect to an Ethereum node with Alchemy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-your-smart-contract">Deploy your Smart Contract</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-your-repository">Set up your repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-your-environment">Define your environment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-the-file">Code the file</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-app-metadata">Web app &amp; metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-the-metadata">Code the metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-your-metadata">Publish your metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-the-smart-contract">Deploy the Smart Contract</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-smart-contract-on-the-blockchain">View the Smart Contract on the blockchain</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Mint your NFT</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-the-mint-js-file">Code the mint.js file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-nft-in-your-wallet">View the NFT in your wallet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-content-to-get-more-familiar-with-solidity">Further content to get more familiar with solidity</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mint-your-nft">
+<h1>Mint Your NFT<a class="headerlink" href="#mint-your-nft" title="Link to this heading">#</a></h1>
+<section id="before-we-dive-into-coding">
+<h2>Before we dive into coding<a class="headerlink" href="#before-we-dive-into-coding" title="Link to this heading">#</a></h2>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h3>
+<p>This tutorial aims at making you discover <strong>how to code in solidity</strong> in order to interact with the blockchain. You are going to learn how to <strong>code a Smart Contract, deploy a NFT and mint it in your wallet.</strong></p>
+<p>To write this assignment, I was greatly inspired by an article published on freecodecamp. This site is a real gold mine if you want to learn how to code or simply familirize yourself with the computer science world. Every content is free of access and of very good quality, have a look here : <a class="reference external" href="https://www.freecodecamp.org/">https://www.freecodecamp.org/</a>.</p>
+<p>🛠 <strong>Disclaimer</strong>
+This tutorial is easily accessible if you are familiar with programming tool. If it’s the first time you hear about terminal, bash, code editor or node.js, <strong>you may need to spend a little bit more time reading outside documentations to get familiar with these notions</strong>. Along this tutorial I put external links for you to get more information. It’s not wasted time for you to do so as it’s more and more useful to understand what these tools are used for in our society where computer science takes a growing part in our lives.</p>
+</section>
+<section id="open-your-crypto-wallet">
+<h3>Open your crypto wallet<a class="headerlink" href="#open-your-crypto-wallet" title="Link to this heading">#</a></h3>
+<p>First we need to open a <strong>wallet</strong> to store our crypto currency and our digital assets.</p>
+<p>There are many wallet provider, but I advice you to open a <strong>MetaMak</strong> wallet as it is one of the most spread.</p>
+<p>💡 Here is a nice <a class="reference external" href="https://myterablock.medium.com/how-to-create-or-import-a-metamask-wallet-a551fc2f5a6b">Tutorial</a> to open a MetaMask Ethereum wallet.</p>
+</section>
+<section id="design-your-avatar">
+<h3>Design your avatar<a class="headerlink" href="#design-your-avatar" title="Link to this heading">#</a></h3>
+<p>We are going to code a smart contract hosting a NFT. This NFT will be your “avatar” for the class. Design an avatar that you will eventually mint as a NFT. It can be whatever you want but it should be a png file.</p>
+</section>
+<section id="download-a-source-code-editor">
+<h3>Download a source code editor<a class="headerlink" href="#download-a-source-code-editor" title="Link to this heading">#</a></h3>
+<p>A source code editor is a software that enables you to open (almost) any type of code file. This will make it possible for you to open, edit and write your own programs.</p>
+<p>If you don’t already have one I advice you to download VScode or Sublime text. If you are a beginner, you should choose VScode as it provides more hand-holding and is a great option for its debugging functionality.</p>
+<p>Here is a tutorial on how to install <a class="reference external" href="https://code.visualstudio.com/docs/setup/windows">VScode</a> and <a class="reference external" href="https://www.geeksforgeeks.org/how-to-install-sublime-text-3-in-windows/">Sublime Text</a>.</p>
+</section>
+<section id="install-node-js-on-your-computer">
+<h3>Install Node.JS on your computer<a class="headerlink" href="#install-node-js-on-your-computer" title="Link to this heading">#</a></h3>
+<p>We will be using NodeJS for the project.</p>
+<p>💡 If you don’t have it installed, follow this simple tutorial : <a class="reference external" href="https://phoenixnap.com/kb/install-node-js-npm-on-windows/">https://phoenixnap.com/kb/install-node-js-npm-on-windows/</a>.</p>
+</section>
+<section id="connect-to-an-ethereum-node-with-alchemy">
+<h3>Connect to an Ethereum node with Alchemy<a class="headerlink" href="#connect-to-an-ethereum-node-with-alchemy" title="Link to this heading">#</a></h3>
+<p>To interact with the Ethereum Network, you will need to be connected to an <strong>Ethereum <a class="reference external" href="https://ethereum.org/en/developers/docs/nodes-and-clients/">Node</a></strong>.</p>
+<p>Running your own Node and maintaining the infrastructure is a project on its own. Luckily, there are <strong>nodes-as-a-service providers</strong> which host the infrastructure for you. We will be using <a class="reference external" href="https://www.alchemy.com/"><strong>Alchemy</strong></a> as our node provider.</p>
+<p>❓ Head over to their website, <strong>create an account</strong>, choose <strong>Ethereum as your network</strong> and create your app. You can choose <strong>Sepolia as your network</strong>. You can also use <strong>Goerli</strong> although it is in the process of being deprecated. It is recommended to use your dashboard, click “view details” on your app, then click “view key”. Save your http key somewhere as we will need that later.</p>
+<p>Also, as you noticed, we will be using the Sepolia testnet. Sepolia is a <strong>testnet</strong> i.e. an instance of Ethereum blockchain used for testing and experimentation without risk to loose real funds or the main chain. That way you’ll learn to write smart contracts and mint NFTs without wasting money if you do a mistake using the mainnet.</p>
+<p>❓ To get some Sepolia, go to one of the faucets (e.g. <a class="reference external" href="https://sepoliafaucet.com/">https://sepoliafaucet.com/</a>), connect with your Alchemy account and copy paste your public key.</p>
+</section>
+</section>
+<section id="deploy-your-smart-contract">
+<h2>Deploy your Smart Contract<a class="headerlink" href="#deploy-your-smart-contract" title="Link to this heading">#</a></h2>
+<section id="set-up-your-repository">
+<h3>Set up your repository<a class="headerlink" href="#set-up-your-repository" title="Link to this heading">#</a></h3>
+<p>We are going to use the terminal to create folders and run files throughout the tutorial. If you are not familiar with using your terminal, I suggest you read this <a class="reference external" href="https://www.freecodecamp.org/news/command-line-for-beginners/">article</a>.</p>
+<p>Make sure you are in the <code class="docutils literal notranslate"><span class="pre">C:\Users\Name</span></code> folder and run this command to create a new directory for your project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>nft-project<span class="w"> </span><span class="c1"># this will create a folder in the root file of your computer</span>
+<span class="nb">cd</span><span class="w"> </span>nft-project<span class="w"> </span><span class="c1"># this will enter the created folder</span>
+</pre></div>
+</div>
+<p>Now, let’s make another directory, <code class="docutils literal notranslate"><span class="pre">ethereum/</span></code>, inside <code class="docutils literal notranslate"><span class="pre">nft-project/</span></code> and initialize it with <a class="reference external" href="https://hardhat.org/getting-started/">Hardhat</a>. Hardhat is a development environment that makes it easy to deploy and test your Ethereum software.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>ethereum<span class="w"> </span><span class="c1">#this will create a new folder within the nft-project one</span>
+<span class="nb">cd</span><span class="w"> </span>ethereum<span class="w"> </span><span class="c1">#this will enter the newly created ethereum folder</span>
+npm<span class="w"> </span>init<span class="w"> </span><span class="c1"># this will &quot;initialize&quot; node.js and create a &quot;package&quot; file in your ethereum folder.</span>
+</pre></div>
+</div>
+<p>Answer the questions however you want. You can press enter to all of them if you want to keep default features.
+Then, run those commands to make a Hardhat project:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>--save-dev<span class="w"> </span>hardhat<span class="w"> </span><span class="c1"># install hardhat on your computer, be careful, don&#39;t forget the &quot;-&quot; between save and dev otherwise it won&#39;t work</span>
+<span class="w">	</span>npx<span class="w"> </span>hardhat<span class="w"> </span>init
+</pre></div>
+</div>
+<p>After waiting a moment, you will see this prompt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">888</span><span class="w">    </span><span class="m">888</span><span class="w">                      </span><span class="m">888</span><span class="w"> </span><span class="m">888</span><span class="w">               </span><span class="m">888</span>
+<span class="m">888</span><span class="w">    </span><span class="m">888</span><span class="w">                      </span><span class="m">888</span><span class="w"> </span><span class="m">888</span><span class="w">               </span><span class="m">888</span>
+<span class="m">888</span><span class="w">    </span><span class="m">888</span><span class="w">                      </span><span class="m">888</span><span class="w"> </span><span class="m">888</span><span class="w">               </span><span class="m">888</span>
+<span class="m">8888888888</span><span class="w">  </span>8888b.<span class="w">  </span>888d888<span class="w"> </span>.d88888<span class="w"> </span>88888b.<span class="w">   </span>8888b.<span class="w">  </span><span class="m">888888</span>
+<span class="m">888</span><span class="w">    </span><span class="m">888</span><span class="w">     </span><span class="s2">&quot;88b 888P&quot;</span><span class="w">  </span>d88<span class="s2">&quot; 888 888 &quot;</span>88b<span class="w">     </span><span class="s2">&quot;88b 888</span>
+<span class="s2">888    888 .d888888 888    888  888 888  888 .d888888 888</span>
+<span class="s2">888    888 888  888 888    Y88b 888 888  888 888  888 Y88b.</span>
+<span class="s2">888    888 &quot;</span>Y888888<span class="w"> </span><span class="m">888</span><span class="w">     </span><span class="s2">&quot;Y88888 888  888 &quot;</span>Y888888<span class="w">  </span><span class="s2">&quot;Y888</span>
+
+<span class="s2">Welcome to Hardhat v2.0.8</span>
+
+<span class="s2">? What do you want to do? …</span>
+<span class="s2">  Create a sample project</span>
+<span class="s2">❯ Create an empty hardhat.config.js</span>
+<span class="s2">  Quit</span>
+</pre></div>
+</div>
+<p>Select create an empty hardhat.config.js and enter. This will generate an empty <code class="docutils literal notranslate"><span class="pre">hardhat.config.js</span></code> file in your  <code class="docutils literal notranslate"><span class="pre">ethereum/</span></code> folder that we will later update.</p>
+</section>
+<section id="define-your-environment">
+<h3>Define your environment<a class="headerlink" href="#define-your-environment" title="Link to this heading">#</a></h3>
+<p>Remember the Alchemy key we grabbed from our test project earlier? We will use that along with our Metamask account’s public and private keys to interact with the blockchain.</p>
+<p>Run the following commands to make a file called <code class="docutils literal notranslate"><span class="pre">.env</span></code> inside your <code class="docutils literal notranslate"><span class="pre">ethereum/</span></code> directory, and install <a class="reference external" href="https://www.npmjs.com/package/dotenv">dotenv</a>. We will use them later.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>touch-cli<span class="w"> </span>-g<span class="w"> </span><span class="c1">#use npm to install the touch package</span>
+touch<span class="w"> </span>.env<span class="w"> </span><span class="c1">#create the .env file</span>
+npm<span class="w"> </span>install<span class="w"> </span>dotenv<span class="w"> </span>--save<span class="w"> </span><span class="c1">#add a package</span>
+</pre></div>
+</div>
+<p>Open your <code class="docutils literal notranslate"><span class="pre">.env</span></code> file with your code editor and put the following keys:</p>
+<ul class="simple">
+<li><p>Alchemycode . key you have exported in the beginning</p></li>
+<li><p>Private key (<a class="reference external" href="https://support.metamask.io/managing-my-wallet/secret-recovery-phrase-and-private-keys/how-to-export-an-accounts-private-key/">follow those instructions</a> to grab your Metamask’s private key)</p></li>
+<li><p>Public key (i.e. wallet address)</p></li>
+</ul>
+<p>🚨 Be extremely careful when handling your private key. Never share it, never copy paste it in a document accessible to any other person than you.</p>
+<p>Open the .env file with the code editor of your choice (I personnaly use VS Code, but Sublime text or any other of your choice will fit) and add your keys.</p>
+<p>Your .env file should look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">API_URL</span> <span class="o">=</span> <span class="s2">&quot;YOUR_ALCHEMY_KEY&quot;</span>
+<span class="n">PRIVATE_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR_METAMASK_PRIVATE_KEY&quot;</span>
+<span class="n">PUBLIC_KEY</span> <span class="o">=</span> <span class="s2">&quot;YOUR_METAMASK_ADDRESS&quot;</span>
+</pre></div>
+</div>
+<p>For the API_URL, be careful to copy paste the whole URL and not only your key.</p>
+</section>
+</section>
+<section id="code-the-file">
+<h2>Code the file<a class="headerlink" href="#code-the-file" title="Link to this heading">#</a></h2>
+<p>Go to the <code class="docutils literal notranslate"><span class="pre">ethereum/</span></code> folder and create two more directories: contracts and scripts. <a class="reference external" href="https://hardhat.org/guides/project-setup.html">A simple hardhat project</a> contains those folders.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">contracts/</span></code> contains the source files of your contracts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scripts/</span></code> contains the scripts to deploy and mint our NFTs</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>contracts
+mkdir<span class="w"> </span>scripts
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>contracts/ is where we’ll keep our NFT smart contract code</p></li>
+<li><p>scripts/ is where we’ll keep scripts to deploy and interact with our smart contract</p></li>
+</ul>
+<p>Then, install OpenZeppelin. <a class="reference external" href="https://docs.openzeppelin.com/contracts/4.x/">OpenZeppelin Contract</a> is an open-sourced library with pre-tested reusable code to make smart contract development easier.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>@openzeppelin/contracts
+</pre></div>
+</div>
+<p>Finally, we will be writing the Smart Contract for our NFT. Navigate to your contracts directory and create a file titled <code class="docutils literal notranslate"><span class="pre">avatar.sol</span></code>. You can name your NFTs however you see fit.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">.sol</span></code> extension refers to the Solidity language, which is what we will use to program our Smart Contract. We will only be writing 14 lines of code with Solidity, so no worries if you haven’t seen it before.</p>
+<p>Start with <a class="reference external" href="https://ethereum.org/en/developers/docs/smart-contracts/languages/">this article</a> to learn more about Smart Contract languages. You can also directly jump to this Solidity <a class="reference external" href="https://reference.auditless.com/cheatsheet/">cheat sheet</a> which contains the main syntax.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>contracts
+touch<span class="w"> </span>avatar.sol<span class="w"> </span>//create<span class="w"> </span>a<span class="w"> </span>solidity<span class="w"> </span>file
+code<span class="w"> </span>avatar.sol<span class="w"> </span>//opens<span class="w"> </span>your<span class="w"> </span>file<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>default<span class="w"> </span>code<span class="w"> </span>editor
+</pre></div>
+</div>
+<p>Open the <code class="docutils literal notranslate"><span class="pre">avatar.sol</span></code> file with your code editor and copy paste the following code (this is our Smart Contract):</p>
+<div class="highlight-solidity notranslate"><div class="highlight"><pre><span></span><span class="c1">// SPDX-License-Identifier: MIT</span>
+<span class="k">pragma solidity</span><span class="w"> </span><span class="o">^</span><span class="k">0.8.17</span><span class="p">;</span><span class="w"> </span><span class="c1">// latest version of solidity</span>
+
+<span class="kt">import</span><span class="w"> </span><span class="s2">&quot;@openzeppelin/contracts/token/ERC721/ERC721.sol&quot;</span><span class="p">;</span><span class="w"> </span>
+
+<span class="k">contract</span><span class="w"> </span><span class="ni">avatar</span><span class="w"> </span><span class="kt">is</span><span class="w"> </span>ERC721<span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">uint256</span><span class="w"> </span><span class="k">private </span><span class="nv">_tokenIdCounter</span><span class="p">;</span>
+
+<span class="w">    </span><span class="kt">constructor</span><span class="p">()</span><span class="w"> </span>ERC721<span class="p">(</span><span class="s2">&quot;avatarname&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;NAME&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="c1">//please here replace name and NAME by your real name</span>
+
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">_baseURI</span><span class="p">()</span><span class="w"> </span><span class="kt">internal</span><span class="w"> </span>pure<span class="w"> </span>override<span class="w"> </span><span class="kt">returns</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="nv">memory</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">return</span><span class="w"> </span><span class="s2">&quot;YOUR_API_URL/api/erc721/&quot;</span><span class="p">;</span><span class="w"> </span><span class="c1">//here you will replace it later by an URL</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">function</span><span class="w"> </span><span class="nv">mint</span><span class="p">(</span><span class="kt">address</span><span class="w"> </span><span class="nv">to</span><span class="p">)</span><span class="w"> </span><span class="kt">public</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">uint256</span><span class="w"> </span><span class="nv">tokenId</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>_tokenIdCounter<span class="p">;</span>
+<span class="w">        </span>_safeMint<span class="p">(</span>to<span class="p">,</span><span class="w"> </span>tokenId<span class="p">);</span>
+<span class="w">        </span>_tokenIdCounter<span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="m m-Decimal">1</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Let’s go through the code and understand what is going on:</p>
+<ul class="simple">
+<li><p>At the top of the file, we specified which OpenZeppelin module to import.
+We need the ERC721 contract as it is the ‘base’ of our Smart Contract.
+It has already implemented all the methods specified in <a class="reference external" href="https://eips.ethereum.org/EIPS/eip-721">EIP-721</a> so we can safely use it. See here for documentation on the different types of smart contracts (token standards) : <a class="reference external" href="https://ethereum.org/en/developers/docs/standards/tokens/">https://ethereum.org/en/developers/docs/standards/tokens/</a></p></li>
+<li><p>A Counter is useful to generate incremental ids for our NFTs. Using the <code class="docutils literal notranslate"><span class="pre">Counters</span></code>
+library, we define unique IDs for every NFT minted using our smart contract. We named the variable <code class="docutils literal notranslate"><span class="pre">_tokenIdCounter</span></code></p></li>
+<li><p>In the constructor, we initialized our ERC721 with its name and its symbol. I chose avatar and NAME.</p></li>
+<li><p>We override the default <code class="docutils literal notranslate"><span class="pre">_baseURI</span></code> function by returning our own. We will get to build that in a second.</p></li>
+<li><p>In summary, it is the URL that will be added as ‘prefix’ to all our tokenURIs. In the above example, the metadata of our NFTs will live in a JSON file at <code class="docutils literal notranslate"><span class="pre">OUR_API_URL/[api/erc721/](https://e110-99-121-58-31.ngrok.io/api/erc721/)1</span></code>.</p></li>
+<li><p>We implement the ‘mint’ function. It is the function that lets you publish an instance of this Smart Contract on the blockchain. I required the <code class="docutils literal notranslate"><span class="pre">_tokenIdCounter</span></code> variable to be less than 1 as I will only create one instance of my NFT. You can change that if you want to mint more.</p></li>
+<li><p>Finally, inside the mint function, we increment the <code class="docutils literal notranslate"><span class="pre">_tokenIdCounter</span></code> **variable by 1, so in the case you want to mint many NFTs, our id will be 1, followed by 2, followed by 3 etc until the number your put in line 18.</p></li>
+<li><p>Then, we call the function provided by OpenZeppelin <code class="docutils literal notranslate"><span class="pre">_safeMint</span></code> to publish the token.</p></li>
+</ul>
+<section id="web-app-metadata">
+<h3>Web app &amp; metadata<a class="headerlink" href="#web-app-metadata" title="Link to this heading">#</a></h3>
+<p>For the web app, we will use <a class="reference external" href="https://nextjs.org/docs/getting-started">Next.js</a> to initialize a fully-functional web app.</p>
+<p>Go back to the root directory <code class="docutils literal notranslate"><span class="pre">nft-project/</span></code> and initialize a boilerplate Next.js app called web:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>..<span class="w"> </span><span class="c1">#command to go back to the previous repository (folder)</span>
+mkdir<span class="w"> </span>web<span class="w"> </span><span class="c1">#create a new repository &quot;web&quot;</span>
+<span class="nb">cd</span><span class="w"> </span>web<span class="w"> </span><span class="c1">#go into that newly created repository</span>
+npx<span class="w"> </span>create-next-app@latest<span class="w"> </span><span class="c1">#create a new app using the default Next.js template</span>
+</pre></div>
+</div>
+<p>You will be asked to name your project. Feel free to name it however your want. In this tutorial, we will name our project “avatar”.</p>
+<p><strong>Troubleshooting</strong>: If the command “npx create-next-app&#64;latest” fail to create a new folder, create it manually. Also reject creating /src and App router folders when generating the next app.</p>
+</section>
+<section id="code-the-metadata">
+<h3>Code the metadata<a class="headerlink" href="#code-the-metadata" title="Link to this heading">#</a></h3>
+<p><strong>Metadata</strong> is a central pillar of blockchain. It is used to provide additional information or data about an asset that may be useful when trying to complete a transaction with the asset itself. Indeed, our file (our png avatar) can’t be stored directly on chain otherwhise it would be insanely costly to run the network as there would be much more data for computers to process. So we need to host it off-chain.</p>
+<p>Each NFT will refer to a file stored on the internet and retrieve the file each time it is asked to. ff-line. NFTs usually point to an IPFS (InterPlanetary File System) hash or an HTTP URL somewhere on the Internet. For more information about metadata, read <a class="reference external" href="https://pastel.network/what-exactly-is-nft-metadata/">this post</a>.</p>
+<p>In our case, we will be building a simple API endpoint which resolve in our NFT’s information as a JSON file.</p>
+<p>Our Next.js project gives us a handy way to develop API routes.</p>
+<p>Go to the <code class="docutils literal notranslate"><span class="pre">web/</span></code> folder, find the <code class="docutils literal notranslate"><span class="pre">api/</span></code> folder within the <code class="docutils literal notranslate"><span class="pre">pages/</span></code> folder, and make our dynamic <code class="docutils literal notranslate"><span class="pre">[id].js</span></code> route in a <code class="docutils literal notranslate"><span class="pre">erc721/</span></code> folder.</p>
+<p>You can do it by hand or type the following code in your temrinal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>web
+<span class="nb">cd</span><span class="w"> </span>avatar
+<span class="nb">cd</span><span class="w"> </span>pages
+<span class="nb">cd</span><span class="w"> </span>api
+mkdir<span class="w"> </span>erc721<span class="w"> </span>//create<span class="w"> </span>a<span class="w"> </span>new<span class="w"> </span>folder<span class="w"> </span>called<span class="w"> </span>erc721,<span class="w"> </span>this<span class="w"> </span>is<span class="w"> </span>usefull<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">case</span><span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>many<span class="w"> </span>different<span class="w"> </span>types<span class="w"> </span>of<span class="w"> </span>contracts
+<span class="nb">cd</span><span class="w"> </span>erc721
+touch<span class="w"> </span><span class="o">[</span>id<span class="o">]</span>.js
+code<span class="w"> </span><span class="o">[</span>id<span class="o">]</span>.js<span class="w"> </span>//this<span class="w"> </span><span class="nb">command</span><span class="w"> </span>wil<span class="w"> </span>open<span class="w"> </span>the<span class="w"> </span>file<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>default<span class="w"> </span>code<span class="w"> </span>editor
+</pre></div>
+</div>
+<p>Then open the file with your code editor and code your metadata:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>const metadata = {//we add a constant in case we wanted to do a series/collection of many NFTs. This enables to have only 1 JSON file for the metadata of all your NFTs. 
+  0: {
+    description: &quot;Name&#39;s avatar for the Blockchain class&quot;, //replace Name by your name
+    image: &quot;https://i.ibb.co/DC4BPR3/fmex6-avgaei3ue.jpg&quot;, // replace with the png or jpg of your avatar !
+    name: &quot;Name&#39;s avatar&quot;,//replace Name by your name
+  }
+};
+
+export default function handler(req, res) {
+  res.status(200).json(metadata[req.query.id] || {});
+}
+</pre></div>
+</div>
+<p>💡 We are naming the file <code class="docutils literal notranslate"><span class="pre">[id].js</span></code> and not <code class="docutils literal notranslate"><span class="pre">0.js</span></code> for instance because we want to give the possibility to create many js files (1 for each NFT we want to mint) in case we wante to create a whole collection of NFT.</p>
+<p>As we don’t have a server to store our image, we will use a free online host service. I used <a class="reference external" href="https://imgbb.com/"><strong>imgbb</strong></a> but feel free to use anyone you want. However, never upload personal or sensitive image on such servers.</p>
+<p>🚨 To ensure your picture appears on Opensea, it’s crucial to complete the tutorial before the ngrok link expires, typically within an hour.</p>
+<p>🚨 For the sake of this project, I made the code as easily understandable as possible. This is definitely not suited for production, you should add details, maybe properties to your NFT to make it more scarce, give it some properties.</p>
+<p>Now, go to <code class="docutils literal notranslate"><span class="pre">/web</span></code> directory then <code class="docutils literal notranslate"><span class="pre">/avatar</span></code>, and start your Next.js app (be careful to run it in <code class="docutils literal notranslate"><span class="pre">/avatar</span></code> and not in <code class="docutils literal notranslate"><span class="pre">/web</span></code> otherwise it won’t work):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>..<span class="w"> </span>//go<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>avatar<span class="w"> </span>directory
+npm<span class="w"> </span>run<span class="w"> </span>dev
+</pre></div>
+</div>
+<p>It may take some time to run.</p>
+<p>Your app should be running on localhost:3000. To make sure our endpoint works, go to <a class="reference external" href="http://localhost:3000/api/erc721/0">http://localhost:3000/api/erc721/0</a> and it should resolve with a JSON object of your first NFT’s metadata.</p>
+<p>To stop npm program from running in your terminal, do ctrl + C and enter Y (for Yes).</p>
+</section>
+<section id="publish-your-metadata">
+<h3>Publish your metadata<a class="headerlink" href="#publish-your-metadata" title="Link to this heading">#</a></h3>
+<p>Since your app is hosted locally, other apps cannot access it. Using a tool like <a class="reference external" href="https://ngrok.com/">ngrok</a>, we can expose our local host to a publicly accessible URL.</p>
+<p><img alt="https://www.freecodecamp.org/news/content/images/2021/10/image-39.png" src="https://www.freecodecamp.org/news/content/images/2021/10/image-39.png" /></p>
+<ol class="arabic simple">
+<li><p>Go to <a class="reference external" href="https://ngrok.com/">ngrok.com</a> and complete the registration process</p></li>
+<li><p>Unzip the downloaded package and double click on ngork</p></li>
+<li><p>A terminal should appear, make sure you cd into the folder where you unzipped your ngrok package (this is very important)</p></li>
+<li><p>Follow the instruction on your dashboard and run</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ngrok<span class="w"> </span>authtoken<span class="w"> </span>YOUR_AUTH_TOKEN<span class="w"> </span>//get<span class="w"> </span>your<span class="w"> </span>token<span class="w"> </span>on<span class="w"> </span>ngrok<span class="w"> </span>dashboard<span class="w"> </span>and<span class="w"> </span>copy<span class="w"> </span>past<span class="w"> </span>it<span class="w"> </span>here
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Then, run this command to create a tunnel to your web app hosted on localhost:3000</p></li>
+</ol>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ngrok</span> <span class="n">http</span> <span class="mi">3000</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>On your terminal, you should see something like this:</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ngrok<span class="w"> </span>by<span class="w"> </span>@inconshreveable<span class="w">                                                                            </span><span class="o">(</span>Ctrl+C<span class="w"> </span>to<span class="w"> </span>quit<span class="o">)</span>
+
+Session<span class="w"> </span>Status<span class="w">                </span>online
+Account<span class="w">                       </span>YOUR_ACCOUNT<span class="w"> </span><span class="o">(</span>Plan:<span class="w"> </span>Free<span class="o">)</span>
+Version<span class="w">                       </span><span class="m">2</span>.3.40
+Region<span class="w">                        </span>United<span class="w"> </span>States<span class="w"> </span><span class="o">(</span>us<span class="o">)</span>
+Web<span class="w"> </span>Interface<span class="w">                 </span>http://127.0.0.1:4040
+Forwarding<span class="w">                    </span>http://YOUR_NGROK_ADDRESS<span class="w"> </span>-&gt;<span class="w"> </span>http://localhost:3000
+Forwarding<span class="w">                    </span>https://YOUR_NGROK_ADDRESS<span class="w"> </span>-&gt;<span class="w"> </span>http://localhost:3000
+</pre></div>
+</div>
+<p>Go to <code class="docutils literal notranslate"><span class="pre">https://YOUR_NGROK_ADDRESS/api/erc721/1</span></code> to make sure your endpoint works correctly. Note that in the instruction will work solely if you keep running “npm run dev”</p>
+<p>You should see that (same as when you configure your terminal to work with ngrok by adding the ngrok executable to your PATH/api/erc721/1)</p>
+<p><img alt="Untitled" src="_images/Image.png" /></p>
+</section>
+<section id="deploy-the-smart-contract">
+<h3>Deploy the Smart Contract<a class="headerlink" href="#deploy-the-smart-contract" title="Link to this heading">#</a></h3>
+<p>Now that we have done all the ground work, let’s go back to our <code class="docutils literal notranslate"><span class="pre">ethereum/</span></code> folder and get ready to deploy our NFT (you can close and reopen your terminal to go faster).</p>
+<p>Change the <code class="docutils literal notranslate"><span class="pre">_baseURI</span></code> function in your <code class="docutils literal notranslate"><span class="pre">ethreum/contracts/avatar.sol</span></code> file **to return your ngrok address.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">ethereum</span><span class="o">/</span><span class="n">conrtacts</span><span class="o">/</span><span class="n">avatar</span><span class="o">.</span><span class="n">sol</span>
+
+<span class="n">contract</span> <span class="n">avatar</span> <span class="ow">is</span> <span class="n">ERC721</span> <span class="p">{</span>
+<span class="o">...</span>
+	<span class="n">function</span> <span class="n">_baseURI</span><span class="p">()</span> <span class="n">internal</span> <span class="n">pure</span> <span class="n">override</span> <span class="n">returns</span> <span class="p">(</span><span class="n">string</span> <span class="n">memory</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">return</span> <span class="s2">&quot;https://YOUR_NGROK_ADDRESS/api/erc721/&quot;</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To deploy our NFT, we will first need to <a class="reference external" href="https://hardhat.org/guides/compile-contracts.html">compile it using Hardhat</a>. To make the process easier, we will install <a class="reference external" href="https://docs.ethers.io/v5/">ethers.js</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npm<span class="w"> </span>install<span class="w"> </span>@nomiclabs/hardhat-ethers<span class="w"> </span>--save-dev
+</pre></div>
+</div>
+<p>Now let’s update our hardhat.config.js in our <code class="docutils literal notranslate"><span class="pre">ethereum/</span></code> folder:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>require(&quot;dotenv&quot;).config();
+require(&quot;@nomiclabs/hardhat-ethers&quot;);
+
+module.exports = {
+  solidity: &quot;0.8.17&quot;,
+	defaultNetwork: &quot;sepolia&quot;,
+   networks: {
+      hardhat: {},
+      sepolia: {
+         url: API_URL,
+         accounts: [`0x${PRIVATE_KEY}`]
+      }
+   },
+}
+</pre></div>
+</div>
+<p>Be careful to have the same solidity version as the one of your <code class="docutils literal notranslate"><span class="pre">avatar.sol</span></code> file (it might be more recent than “0.8.17”). Note: Remove $ and {} when entering your private key.</p>
+<p>To learn more about the hardhat configuration file, take a look at their <a class="reference external" href="https://hardhat.org/config/">documentation</a>. We have configured the Sepolia network with our Alchemy URL and provided it with the private key of your metamask account.</p>
+<p>Finally, go back to the <code class="docutils literal notranslate"><span class="pre">ethereum/</span></code> folder and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npx<span class="w"> </span>hardhat<span class="w"> </span>compile
+</pre></div>
+</div>
+<p>This lets hardhat generate two files per compiled contract. We should see a newly created <code class="docutils literal notranslate"><span class="pre">artifacts/</span></code> folder that contains your compiled contracts in the <code class="docutils literal notranslate"><span class="pre">contracts/</span></code> folder. To learn more about how that works, read <a class="reference external" href="https://hardhat.org/guides/compile-contracts.html">this tutorial</a> by the Hardhat team.</p>
+<p>Now, let’s write a script to finally deploy our NFT to the test network. In your <code class="docutils literal notranslate"><span class="pre">scripts/</span></code> folder, create a file called <code class="docutils literal notranslate"><span class="pre">deploy.js</span></code>.</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>async function main() {
+    const Avatar = await ethers.getContractFactory(&quot;avatar&quot;)
+    const avatar = await Avatar.deploy()
+    await avatar.deployed()
+    console.log(&quot;Contract deployed to address:&quot;, avatar.address)
+}
+
+main()
+    .then(() =&gt; process.exit(0))
+    .catch((error) =&gt; {
+        console.error(error)
+        process.exit(1)
+  })
+</pre></div>
+</div>
+<p>This code is inspired by <a class="reference external" href="https://hardhat.org/guides/deploying.html">the hardhat deployment tutorial</a>.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">ContractFactory</span></code> in ethers.js is an abstraction used to deploy new smart contracts, so <code class="docutils literal notranslate"><span class="pre">avatar</span></code> here is a factory for instances of our token contract. Calling <code class="docutils literal notranslate"><span class="pre">deploy()</span></code> on a <code class="docutils literal notranslate"><span class="pre">ContractFactory</span></code> will start the deployment, and return a <code class="docutils literal notranslate"><span class="pre">Promise</span></code> that resolves to a <code class="docutils literal notranslate"><span class="pre">Contract</span></code> . This is the object that has a method for each of your smart contract functions.</p>
+<p>In your terminal, go to the <code class="docutils literal notranslate"><span class="pre">/ethereum</span></code> folder and run the deployment script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>npx<span class="w"> </span>hardhat<span class="w"> </span>--network<span class="w"> </span>sepolia<span class="w"> </span>run<span class="w"> </span>scripts/deploy.js<span class="w"> </span>
+</pre></div>
+</div>
+<p>You should see in your terminal <code class="docutils literal notranslate"><span class="pre">avatar</span> <span class="pre">deployed:</span> <span class="pre">SOME_ADDRESS</span></code>. This is the address where your Smart Contract is deployed on the Sepolia test network.</p>
+<p>Keep this adress closely as we will need it for the mint.</p>
+</section>
+<section id="view-the-smart-contract-on-the-blockchain">
+<h3>View the Smart Contract on the blockchain<a class="headerlink" href="#view-the-smart-contract-on-the-blockchain" title="Link to this heading">#</a></h3>
+<p>If you head over to <code class="docutils literal notranslate"><span class="pre">https://sepolia.etherscan.io/address/SOME_ADDRESS</span></code>, you should see your freshly deployed Smart Contract.</p>
+<p>You can also access it by copy pasting your MetaMask Wallet address.</p>
+</section>
+</section>
+<section id="id1">
+<h2>Mint your NFT<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="code-the-mint-js-file">
+<h3>Code the mint.js file<a class="headerlink" href="#code-the-mint-js-file" title="Link to this heading">#</a></h3>
+<p>Now that you have deployed your NFT, it’s time to mint it for yourself! Create a new file called <code class="docutils literal notranslate"><span class="pre">mint.js</span></code> in your <code class="docutils literal notranslate"><span class="pre">/scripts</span></code> folder. We will be using ethers.js to help us.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>scripts<span class="w"> </span>//go<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>scripts<span class="w"> </span>folder
+touch<span class="w"> </span>mint.js<span class="w"> </span>//create<span class="w"> </span>a<span class="w"> </span>mint.js<span class="w"> </span>file
+npm<span class="w"> </span>install<span class="w"> </span>--save<span class="w"> </span>ethers<span class="w"> </span>//add<span class="w"> </span>the<span class="w"> </span>ether.js<span class="w"> </span>package
+code<span class="w"> </span>mint.js<span class="w"> </span>//open<span class="w"> </span>the<span class="w"> </span>file<span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>code<span class="w"> </span>editor
+</pre></div>
+</div>
+<p>Then, in the mint.js file, code the following:</p>
+<div class="highlight-jsx notranslate"><div class="highlight"><pre><span></span>require(&quot;dotenv&quot;).config();
+const { ethers } = require(&quot;ethers&quot;);
+
+const contract = require(&quot;../artifacts/contracts/avatar.sol/avatar.json&quot;);
+const contractInterface = contract.abi;
+
+// https://docs.ethers.io/v5/api/providers
+const provider = ethers.getDefaultProvider(&quot;sepolia&quot;, {
+  alchemy: process.env.API_URL,
+});
+
+// https://docs.ethers.io/v5/api/signer/#Wallet
+const wallet = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
+
+//https://docs.ethers.io/v5/api/contract/contract
+const Avatar = new ethers.Contract(
+	  &quot;YOUR_NFT_ADDRESS&quot;, // replace by the NFT adresse given by the last step (adress of the smart contract)
+    contractInterface,
+    wallet
+);
+
+const main = () =&gt; {
+  Avatar
+    .mint(process.env.PUBLIC_KEY)
+    .then((transaction) =&gt; console.log(transaction))
+    .catch((e) =&gt; console.log(&quot;something went wrong&quot;, e));
+};
+
+main();
+</pre></div>
+</div>
+<p>Some comments to where you can find more information about the different methods:</p>
+<ul class="simple">
+<li><p>We first grab the contract’s interface (ABI). From <a class="reference external" href="http://ethereum.org">ethereum.org</a>: An application binary interface, or ABI, is the standard way to interact with <a class="reference external" href="https://ethereum.org/en/glossary/#contract-account">contracts</a>. Your ABI defines how others interact with your contract. Then, we created our provider with Alchemy (remember about node-as-a-service). Finally, we initialize our wallet with our private key.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">main()</span></code> function calls the <code class="docutils literal notranslate"><span class="pre">mint</span></code> method in the Smart Contract we had just deployed. The <code class="docutils literal notranslate"><span class="pre">mint</span></code> method takes only one parameter, <code class="docutils literal notranslate"><span class="pre">to</span></code>, which indicate the receiver of the token. Since we are minting for ourself, we put the public address of our Metamask account.</p></li>
+</ul>
+<p>Now run in your ethereum folder:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>node<span class="w"> </span>scripts/mint.js
+</pre></div>
+</div>
+<p><strong>Troubleshooting:</strong> If you run into an error message, check the <a class="reference external" href="https://ethereum.stackexchange.com/questions/154412/typeerror-cannot-read-properties-of-undefined-reading-match">following thread</a>. Note that the issue should not prevent you from minting your NFT.</p>
+<p>If everything goes well, after a couple of seconds, you should see a response like this in your terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>The<span class="w"> </span><span class="nb">hash</span><span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>transaction<span class="w"> </span>is:<span class="w"> </span>xxxxxxxxxxxxxxxxx<span class="w"> </span>//<span class="w"> </span>a<span class="w"> </span>long<span class="w"> </span><span class="nb">hash</span>
+Check<span class="w"> </span>Alchemy<span class="err">&#39;</span>s<span class="w"> </span>Mempool<span class="w"> </span>to<span class="w"> </span>view<span class="w"> </span>the<span class="w"> </span>status<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>transaction!
+</pre></div>
+</div>
+<p>Grab the <code class="docutils literal notranslate"><span class="pre">hash</span></code> property and go to <code class="docutils literal notranslate"><span class="pre">https://sepolia.etherscan.io/tx/YOUR_HASH</span></code>. You should see the minting transaction there!</p>
+</section>
+<section id="view-the-nft-in-your-wallet">
+<h3>View the NFT in your wallet<a class="headerlink" href="#view-the-nft-in-your-wallet" title="Link to this heading">#</a></h3>
+<p>First dowload the mobile version of Metamask.</p>
+<p>Then, log into your account. You should see an NFTs tab along with an add NFT button.</p>
+<p>Click on the button and enter the address of your Smart Contract along with the ids that you have minted. In our case, we only minter 1 NFT so id should be <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="further-content-to-get-more-familiar-with-solidity">
+<h2>Further content to get more familiar with solidity<a class="headerlink" href="#further-content-to-get-more-familiar-with-solidity" title="Link to this heading">#</a></h2>
+<p>If you want to go further into learning Solidity, there is a very nice tutorial named <a class="reference external" href="https://cryptozombies.io/">cryptozombies</a>. This will drive you step by step to Code Blockchain DApps by Building Simple Games.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Cryptography.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Cryptography</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-we-dive-into-coding">Before we dive into coding</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#open-your-crypto-wallet">Open your crypto wallet</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-your-avatar">Design your avatar</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#download-a-source-code-editor">Download a source code editor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-node-js-on-your-computer">Install Node.JS on your computer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connect-to-an-ethereum-node-with-alchemy">Connect to an Ethereum node with Alchemy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-your-smart-contract">Deploy your Smart Contract</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up-your-repository">Set up your repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#define-your-environment">Define your environment</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-the-file">Code the file</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-app-metadata">Web app &amp; metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-the-metadata">Code the metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-your-metadata">Publish your metadata</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deploy-the-smart-contract">Deploy the Smart Contract</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-smart-contract-on-the-blockchain">View the Smart Contract on the blockchain</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Mint your NFT</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-the-mint-js-file">Code the mint.js file</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-nft-in-your-wallet">View the NFT in your wallet</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-content-to-get-more-familiar-with-solidity">Further content to get more familiar with solidity</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

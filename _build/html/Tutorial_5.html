@@ -1,0 +1,622 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5. Ethereum Scaling &#8212; My Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Tutorial_5';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. NFTs and Token Standards" href="Tutorial_6.html" />
+    <link rel="prev" title="4. Decentralised Finance" href="Tutorial_4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">My Jupyter Book</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_1.html">1. Wallet Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_2.html">2. Bitcoin Transactions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_3.html">3. Ethereum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_4.html">4. Decentralised Finance</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Ethereum Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tutorial_6.html">6. NFTs and Token Standards</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Exercises</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Cryptography.html">Cryptography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Mint_NFT.html">Mint Your NFT</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Tutorial_5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>5. Ethereum Scaling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-gas">The problem with gas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-throughput">The problem with throughput</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rollups">Rollups</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-l2">Problems with L2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liquidity">Liquidity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onboarding-offboarding-time">Onboarding/offboarding time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-connect-to-l2-solutions">How to connect to L2 solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridges">Bridges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transferring-assets-to-arbitrum-one">Transferring assets to Arbitrum One</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-l2-solutions">Other L2 solutions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-tutorial">Next tutorial</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ethereum-scaling">
+<h1>5. Ethereum Scaling<a class="headerlink" href="#ethereum-scaling" title="Link to this heading">#</a></h1>
+<p>In this tutorial we discuss the largest hurdle to the wide-scale adoption of cryptocurrencies, which is that transactions on the main chains can cost a significant fraction of the transacted amount, especially for smaller amounts. We define the problem and look at the solutions that have been created and how to use them.</p>
+<section id="the-problem-with-gas">
+<h2>The problem with gas<a class="headerlink" href="#the-problem-with-gas" title="Link to this heading">#</a></h2>
+<p>Looking back at the previous tutorials, we spent about 4 USD converting Bitcoin to Ethereum.</p>
+<p>These are some fairly high fees for a technology that is trying to take on Visa and Mastercard. It is still cheaper than international transfers between banks, but then again there are other options like Revolut or Wise which are easier to use, and also have lower fees.</p>
+<p>Crypto enthusiasts are often known to reference the face that El Salvador has adopted Bitcoin as an official currency, and argue that this is evidence that, countries like Lebanon or Turkey, where the ‘traditional’ economic structures do not support the population,  would do well to follow in El Salvador’s footsteps. If you want to read more about how cryptocurrencies are being used to support purchases/safer depositing in volatile economies, this article is a good place to start:</p>
+<p><a class="reference external" href="https://cryptoforinnovation.org/crypto-offers-lebanon-a-lifeline-in-face-of-continuing-financial-crises/">Crypto offers Lebanon a lifeline in face of continuing financial crises</a></p>
+<p>However, in spite of the fact that crypto offers some solutions to the problems we see in these economies, it seems unlikely though that in these countries - where the median wage is below 500 euros a month - people would be willing or even able to pay for goods in a currency where the fees for payment can add 10% or more to the total price of a purchase.</p>
+</section>
+<section id="the-problem-with-throughput">
+<h2>The problem with throughput<a class="headerlink" href="#the-problem-with-throughput" title="Link to this heading">#</a></h2>
+<p>The following graph should illuminate why this is the case:</p>
+<p><img alt="Untitled" src="_images/Image24.png" /></p>
+<p>Bitcoin can handle about 7 transactions per second and Ethereum can handle about 20. Meanwhile Visa, the largest payment processing network in the world, averages 1700 transactions per second, and claims that their systems can reliably handle 24.000 transactions per second. Their servers are even reported to be able to handle up to 56.000 transactions per second. From tutorial 2 and 3, you will remember that the gas fees on Bitcoin and Etheruem are supposed to be set by the market, for people wanting their transactions included in the network. However, put simply, if 21 people want their transaction included in an Ethereum block this second, this ‘people led’ pricing cannot be used. Therefore, the gas fee will be raised - algorithmically or by the other users - significantly enough to make 1 person reconsider whether they really need that transaction included right away.</p>
+<p>Why not simply design blockchains to accommodate higher throughput? The reason is that increasing the number of transactions per second can compromise security and decentralisation. Achieving higher throughput typically demands better hardware to process the increased volume of transactions and greater bandwidth to propagate those transactions across the network. This can potentially reduce the overall security and decentralisation of the blockchain.</p>
+</section>
+<section id="solutions">
+<h2>Solutions<a class="headerlink" href="#solutions" title="Link to this heading">#</a></h2>
+<p>Layer 2, colloquially shortened to L2, is the proposed solution to this conundrum of low throughput, leading to high fees. Whereas Layer 1 or L1 is commonly used to refer to the “base” blockchain, like the Ethereum or Bitcoin blockchain, L2 stands for separate blockchains that in DeFi jargon “inherit the security of L1 while extending the L1 blockchain”. What this means is that L2 blockchains are as decentralised and hacking proof as the L1 blockchains; but they provide services, such as higher throughput, that L1 blockchains cannot provide. A simple way to think of L2 blockchains is to think of them as executing the code and then the L1 blockchain as saving the result.</p>
+<ul>
+<li><p>Note on terminology</p>
+<p>There is a lack of consensus regarding the precise definition of ‘Layer 2’ in blockchain terminology. Broadly, and in alignment with the approach taken in this tutorial, Layer 2 refers to any scaling solution on a blockchain. In more technical contexts, there’s a distinction made between various scaling solutions, categorising one type as ‘Layer 2’ and another as ‘side-chains’.</p>
+</li>
+</ul>
+<section id="rollups">
+<h3>Rollups<a class="headerlink" href="#rollups" title="Link to this heading">#</a></h3>
+<p>There are various different typologies of L2 solutions, and the distinctions become quite technical quite fast. However, the ones that are most popular and promising on the Ethereum blockchain use something called a ‘rollup’. The idea is that you have a smart contract within the L1 blockchains that serves as the bridge between L1 and L2 blockchains. If you transact with your money on the L2 rollup blockchain, these transactions are not saved to the Ethereum blockchain immediately; rather, they are executed on the rollup blockchain for cheap or even free (oftentimes subsidised by proceeds from the sale of governance tokens). To save these transactions to the Ethereum blockchain, the rollup contract, after a certain period, gathers all the transactions it hasn’t yet recorded on the L1 blockchain. It consolidates and compresses them before submitting them as a batch to the L1 chain (this is the ‘rolling up’ element). This process can be likened to sharing the gas fee for your transaction with all the others included in the batch.</p>
+<p>As a side note, Bitcoin employs a somewhat distinct approach with its widely adopted ‘Lightning network,’ mainly due to the greater complexity of implementing smart contracts on the Bitcoin blockchain.</p>
+</section>
+</section>
+<section id="problems-with-l2">
+<h2>Problems with L2<a class="headerlink" href="#problems-with-l2" title="Link to this heading">#</a></h2>
+<p>Although L2 seems to be a somewhat magical solution to all ills that Blockchains in general face, there are some serious downsides. The first issue is naturally the further complication of an already convoluted system - although most of these complications are not experienced by the users directly.</p>
+<section id="liquidity">
+<h3>Liquidity<a class="headerlink" href="#liquidity" title="Link to this heading">#</a></h3>
+<p>The first issue that arises with multiple different competing L2 solutions is that, funnily enough, nobody can agree on which one to use - there is no consensus. This is detrimental for the simple reason that you cannot have your transactions listed on multiple L2 solutions (it wouldn’t be desirable either as that would lead to double spending problems). This means that liquidity becomes fragmented, and as explained in previous tutorials, liquidity is key when it comes to the efficient functioning of DeFi. Every dollar that is deposited into a liquidity pool on Uniswap in Polygon (a L2 solution) is one dollar of liquidity that could have been added to the liquidity pool on the Ethereum main-chain or to a liquidity pool on Avalanche (a different L2 solution). This leads to higher slippage and more opportunities for price manipulation.</p>
+<p>On the flip side, switching between different Layer 2 (L2) solutions can present challenges and costs. Currently, if you need to transition from Polygon to Arbitrum, for instance, you must first return from Polygon to the Ethereum Layer 1 (L1) and then proceed from there to Arbitrum Layer 2. However, it’s worth noting that many brilliant researchers are actively working on addressing this issue.</p>
+<details style="border: 1px solid #ccc; border-radius: 10px; width: 700px;">
+  <summary style="font-weight: bold; cursor: pointer; padding: 5px;"> 
+ Click for more detail on L2 interoperability challenges</summary>
+  <p>Currently, most L2 solutions are using something called ‘optimistic rollups’. The basic idea is that the L2 solution assumes that all transactions that have been submitted to it are valid, by default. Non-valid transactions have to be manually challenged - which is a relatively expensive thing to do. So for a transaction to be considered fully valid, it must remain submitted for a week or longer without anyone challenging it. This means that it is difficult to broadcast the state of an optimistic rollup L2 solution to the entire network - and have the entire network be aware of the current state at all times. The solution to this is something called ‘zero knowledge rollups’, which are mathematically incredibly interesting, but also require some mathematical challenges to be overcome before they see widespread use.
+    </p>
+</details>
+</section>
+<section id="onboarding-offboarding-time">
+<h3>Onboarding/offboarding time<a class="headerlink" href="#onboarding-offboarding-time" title="Link to this heading">#</a></h3>
+<p>The third large hurdle that L2 solutions face is onboarding and offboarding times. Usually, when you interact with a smart contract on Ethereum, your transactions is confirmed within a dozen or so seconds, whether that be sending money to a friend or withdrawing funds from some liquidity pool - regardless on the type of transaction. Although L2 solutions can handle a lot more transactions per second, and these transactions are basically instantly confirmed, if you want to withdraw your money from L2 and put it back on the main chain (for instance, to move your funds from a liquidity pool on Polygon onto a liquidity pool on the main chain) you have to wait for quite some time depending on the protocol being used. Some solutions do it for you in about 20 minutes, while others can take as long as a week to withdraw your money from.</p>
+</section>
+<section id="security">
+<h3>Security<a class="headerlink" href="#security" title="Link to this heading">#</a></h3>
+<p>At the end of the day, achieving high scalability, meaning a high number of transactions per second, while maintaining the same level of security and decentralisation as lower transaction-per-second solutions, remains a significant challenge. Unless we allocate a substantial portion of our internet infrastructure to duplicating transaction messages on a blockchain to ensure that everyone who needs them receives them, there will always be a trade-off.</p>
+<p>This is not to suggest that Layer 2 (L2) solutions are inherently insecure. Instead, it can be thought of as varying levels of security. In the traditional financial world, for instance, we wouldn’t hesitate to carry a 2 euro coin in our back pocket. However, we’d prefer to keep a 50 euro bill in our wallet. When it comes to 5000 euros, we might be comfortable with a fintech service, while our life savings would typically be entrusted to a major bank. Layer 1 can be likened to the big bank holding our life savings, where every transaction is slow, cumbersome, and costly, but the risk of something going wrong is low. On the other hand, Layer 2 solutions enable projects and protocols to choose the level of security they desire, although they never quite fall to the level of security of a 2 euro coin in your back pocket, it is still important to check what the security tradeoffs of difference L2 solutions are. Often, the primary risk with L2 solutions is placing trust in a centralised team, similar to the trust required for a fiat-backed stablecoin.</p>
+</section>
+</section>
+<section id="how-to-connect-to-l2-solutions">
+<h2>How to connect to L2 solutions<a class="headerlink" href="#how-to-connect-to-l2-solutions" title="Link to this heading">#</a></h2>
+<p>Before looking into what you can do on L2, let’s first go over how to get your assets onto L2 solutions. For this we will be looking more closely at what is currently the largest L2 project, Arbitrum One.</p>
+<section id="bridges">
+<h3>Bridges<a class="headerlink" href="#bridges" title="Link to this heading">#</a></h3>
+<p>As L2 solutions are separate blockchains, then there is by default no intrinsic connection between the two blockchains, and they are both completely unaware of each other. This can present certain issues. We have faced the same problem before, in the first tutorial, when we traded Bitcoin on the Bitcoin Blockchain for Ether on the Ethereum Blockchain. Although Ethereum L2’s are more connected with the Ethereum Blockchain, they still require an extra step. This is what so-called bridges are for. They provide a “bridge” between the different blockchains. The idea behind L2 bridges is simple; you send some of your assets to a smart contract that ‘locks’ those assets up, and then an equivalent contract on the other blockchain transfers to you an equal amount of assets on the L2 blockchain. Technically, you are not holding the real asset, but rather something that in crypto jargon is called a ‘wrapped’ asset. You can think of this as a pegged, but otherwise unrelated currency. This is similar to how Bitcoin on the Ethereum Blockchain is not true Bitcoin, but a token on the Ethereum network that happens to be pegged to Bitcoin.</p>
+<p>This also means that bridges are fairly dangerous. First of all, they’re fairly complicated pieces of code that need to account for the peculiarities of two blockchains rather than just one, meaning they’re more likely to have bugs in them. Secondly, they are often fairly centralised, meaning that it only takes a few bad actors to bring the entire operation down. These are not theoretical concerns either; bridges are very often attacked, and successfully at that, by malicious actors.</p>
+<p><a class="reference external" href="https://limechain.tech/blog/biggest-blockchain-bridge-hacks-2022/">What Went Wrong: Biggest Blockchain Bridge Hacks - LimeChain</a></p>
+<p>In spite of this, it’s crucial to highlight that bridges connecting the Ethereum Layer 1 (L1) blockchain to Layer 2 (L2) scaling solutions are generally considered more secure than bridges connecting different Layer 1 blockchains. For example, a bridge between Ethereum and Bitcoin.</p>
+<p><a class="reference external" href="https://entethalliance.org/2023-02-28-state-of-l2-bridges/">The Current State of Layer 2 Bridges - Enterprise Ethereum Alliance</a></p>
+</section>
+<section id="transferring-assets-to-arbitrum-one">
+<h3>Transferring assets to Arbitrum One<a class="headerlink" href="#transferring-assets-to-arbitrum-one" title="Link to this heading">#</a></h3>
+<p>Note that withdrawing assets from Arbitrum can take up to a week. Only follow this tutorial if you are willing to lock your assets up for that long. Furthermore, it takes about 15 minutes to actually transfer funds to Arbitrum. Do note that it is possible to withdraw the funds sooner by going to a centralised exchange and selling your Arbitrum based funds there, although that is less fun since you’re not using blockchain technology.</p>
+<p>First, we want to connect or ‘wallet to’ the official Arbitrum bridge at the following link</p>
+<p><a class="reference external" href="https://bridge.arbitrum.io/">Bridge to Arbitrum</a></p>
+<p><img alt="Untitled" src="_images/Image115.png" /></p>
+<p>Once connected you can choose the amount that you want to transfer:</p>
+<p><img alt="Untitled" src="_images/Image25.png" /></p>
+<p>A screen will then pop up on your right, showing your funds moving to Arbitrum. Since there are multiple steps to this process it takes a bit of time to complete.</p>
+<p><img alt="Untitled" src="_images/Image34.png" /></p>
+<p>While waiting, we can explore the Etherscan transaction sending assets to Arbitrum by clicking on the transaction ID under step 1:</p>
+<p><img alt="Untitled" src="_images/Image44.png" /></p>
+<p>We can see that our assets were transferred to the Arbitrum ‘delayed inbox contract’, which then transferred them to the Arbitrum bridge contract. Having the ‘delayed inbox contract’ in between you and the bridge allows Arbitrum to do internal checks, and send you the money on the Arbitrum chain. If you are interested in more details on how exactly Arbitrum transactions are handled, see here:</p>
+<p><a class="reference external" href="https://docs.arbitrum.io/tx-lifecycle">Tx Lifecycle</a></p>
+<p>Once Arbitrum has confirmed your transaction, your screen should look like the following:</p>
+<p><img alt="Untitled" src="_images/Image54.png" /></p>
+<p>If we click on the transaction ID from step 2, we will be taken to the transaction on Arbiscan, which is the analogue to Etherscan or Blockchair, but on Arbitrum. However, if you check your wallet you will find it empty.</p>
+<p><img alt="Untitled" src="_images/Image64.png" /></p>
+<p>This is because we haven’t told Metamask to recognise Arbitrum. The simplest way to let MetaMask know of Arbitrum is to go back to the Arbitrum bridge webpage, close the transaction history and then click on the Mainnet button on the top right.</p>
+<p><img alt="tempsnip.png" src="_images/tempsnip7.png" /></p>
+<p>Choose ‘Arbitrum One’ and you will be shown the following screen on MetaMask</p>
+<p><img alt="Untitled" src="_images/Image73.png" /></p>
+<p>Approve the change, and change your chain to Arbitrum One. Now when you view your wallet, you will be viewing the addresses that you control on the Arbitrum blockchain. You can change back to the Ethereum Mainnet by clicking on the button on the top left and choosing Ethereum Mainnet.</p>
+<p><img alt="tempsnip (1).png" src="_images/tempsnip_%281%29.png" /></p>
+<p>Generally, if you wish to add a network, such as a Testnet, to your Metamask wallet, you can follow these steps: access the settings, navigate to the networks tab, and input the necessary information on the right. However, Metamask often provides a preset list of networks that can be easily added.</p>
+<p><img alt="Untitled" src="_images/Image83.png" /></p>
+<p>As a simple sanity exercise, let’s compare how much it costs to convert our ETH to USDT on Arbitrum, using 1inch and Uniswap. We can use 1inch as usual, but we have to still swap it over to Arbitrum. To do this make sure that the network on the top right on the 1inch application is set as Arbitrum.</p>
+<p><a class="reference external" href="https://app.1inch.io/">1inch - DeFi / DEX aggregator on Ethereum, Binance Smart Chain, Optimism, Polygon, Arbitrum</a></p>
+<p><img alt="tempsnip.png" src="_images/tempsnip13.png" /></p>
+<p>Take note of the fact that the transfer only incurs a cost of 7 cents when converted from gwei to USD. While it’s not flawless, it’s far more manageable than the $2.50 it would cost on the Ethereum mainnet. Additionally, this provides us with a price of 1631.6 USDT per ETH, whereas the Binance (a centralized exchange) spot price at the same time stands at 1631.43 USDT per ETH. Therefore, in this case, 1inch is offering a more favorable price than Binance (excluding fees).</p>
+<p><img alt="Untitled" src="_images/Image93.png" /></p>
+<p>Now for Uniswap, the savings are smaller as the cost is still about a dollar’s worth of Ethereum, but that’s still only half of what we were paying on the Etheruem mainnet.</p>
+<p><img alt="tempsnip.png" src="_images/tempsnip22.png" /></p>
+<p>If you wish to explore different applications that you can access on the Arbitrum ecosystem, you can do so here:</p>
+<p><a class="reference external" href="https://arbitrum.io/community">Arbitrum Community</a></p>
+<p>Arbitrum One is the chain that was presented above, and is what is usually meant when Arbitrum is referred to. Arbitrum Nova is an even higher throughput L2 solution that sacrifices centralisation and is designed for games connected to the Ethereum ecosystem. Note that there is always a risk of losing some money. Therefore, it is smart to have two different addresses, one for a quasi-savings account and one for spending money and to interact with DeFi through the spending money account. In this case if you are somehow compromised, you do not lose your savings.</p>
+</section>
+</section>
+<section id="other-l2-solutions">
+<h2>Other L2 solutions<a class="headerlink" href="#other-l2-solutions" title="Link to this heading">#</a></h2>
+<p>Other prominent L2 solutions include Polygon, which was the largest L2 solution before being surpassed by Arbitrum. Polygon boasts withdrawal times of approximately 3 hours. They provide several L2 solutions that utilize various technologies, including a distinct approach to rollups known as zero knowledge proofs (zk for short). Zero knowledge solutions are significantly more mathematically complex, and they are subject to ongoing innovation since the mathematics behind zero knowledge proofs is an actively researched field.</p>
+<p><a class="reference external" href="https://wallet.polygon.technology/">Polygon Bridge: Bridge Assets from Ethereum to Polygon zkEVM</a></p>
+<p>Another common L2 solution is Optimism, it is the third largest L2 solution after Polygon and Arbitrum. Optimism has a withdrawal time of a week, and uses the ‘optimistic rollup’ approach we discussed earlier, as the name may hint.</p>
+<p><a class="reference external" href="https://app.optimism.io/bridge/deposit">OP Mainnet is Ethereum, scaled.</a></p>
+</section>
+<section id="next-tutorial">
+<h2>Next tutorial<a class="headerlink" href="#next-tutorial" title="Link to this heading">#</a></h2>
+<p>In the next tutorial we deal with a section of DeFi that we have yet to discuss - NFTs. We will look at how they’re sold, how to buy them, what they are and what you own when you buy an NFT. Finally, we will learn how to create our own NFTs.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Tutorial_4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">4. Decentralised Finance</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Tutorial_6.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">6. NFTs and Token Standards</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-gas">The problem with gas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-problem-with-throughput">The problem with throughput</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solutions">Solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rollups">Rollups</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problems-with-l2">Problems with L2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#liquidity">Liquidity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#onboarding-offboarding-time">Onboarding/offboarding time</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#security">Security</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-connect-to-l2-solutions">How to connect to L2 solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridges">Bridges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transferring-assets-to-arbitrum-one">Transferring assets to Arbitrum One</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-l2-solutions">Other L2 solutions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-tutorial">Next tutorial</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By The Jupyter Book community
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

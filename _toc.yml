@@ -1,0 +1,18 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Tutorials
+    chapters:
+    - file: Tutorial_1
+    - file: Tutorial_2
+    - file: Tutorial_3
+    - file: Tutorial_4
+    - file: Tutorial_5
+    - file: Tutorial_6
+  - caption: Exercises
+    chapters:
+    - file: Cryptography
+    - file: Mint_NFT

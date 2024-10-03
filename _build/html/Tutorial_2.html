@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>2. Bitcoin Transactions &#8212; My Jupyter Book</title>
+    <title>2. Bitcoin Transactions &#8212; Blockchain Course</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -150,8 +150,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/Logo.png" class="logo__image only-light" alt="Blockchain Course - Home"/>
+    <script>document.write(`<img src="_static/Logo.png" class="logo__image only-dark" alt="Blockchain Course - Home"/>`);</script>
   
-    <p class="title logo__title">My Jupyter Book</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -229,6 +235,53 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/julprat/Blockcourse" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/julprat/Blockcourse/issues/new?title=Issue%20on%20page%20%2FTutorial_2.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -386,7 +439,7 @@ document.write(`
 <p>In practical terms, this means that each UTXO can be spent independently in a single transaction. For example, if you have a UTXO worth 0.5 Bitcoin and another worth 0.2 Bitcoin in your wallet, you can send 0.25 Bitcoin to one person from the first UTXO and 0.2 Bitcoin from the second UTXO to another person in one transaction, which can help minimize transaction fees.</p>
 <p>Moreover, the UTXO system has significant implications for privacy. While it’s challenging to trace who owns a specific UTXO (i.e., who controls the private keys), it’s relatively easy to trace the history of that UTXO, meaning the transactions that created it. This is because the Bitcoin blockchain records UTXOs.</p>
 <p>In the example below, Alice starts with a total balance of 21 BTC before the transaction and ends with a balance of 15.99 BTC after. She chooses to pay using UTXOs of 2 BTC and 4 BTC. After paying a 0.01 BTC transaction fee, she receives a UTXO of 0.99 BTC as change, while Bob receives a UTXO of 5 BTC.</p>
-<p><img alt="Untitled" src="_images/Image21.png" /></p>
+<p><img alt="Untitled" src="_images/Image22.png" /></p>
 </section>
 <section id="mempool">
 <h3>Mempool<a class="headerlink" href="#mempool" title="Link to this heading">#</a></h3>
@@ -559,7 +612,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book community
+By Julien Prat, riho marten pallum
 </p>
 
   </div>

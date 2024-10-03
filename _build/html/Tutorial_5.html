@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>5. Ethereum Scaling &#8212; My Jupyter Book</title>
+    <title>5. Ethereum Scaling &#8212; Blockchain Course</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -148,8 +148,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/Logo.png" class="logo__image only-light" alt="Blockchain Course - Home"/>
+    <script>document.write(`<img src="_static/Logo.png" class="logo__image only-dark" alt="Blockchain Course - Home"/>`);</script>
   
-    <p class="title logo__title">My Jupyter Book</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -227,6 +233,53 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/julprat/Blockcourse" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/julprat/Blockcourse/issues/new?title=Issue%20on%20page%20%2FTutorial_5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -378,7 +431,7 @@ document.write(`
 <section id="the-problem-with-throughput">
 <h2>The problem with throughput<a class="headerlink" href="#the-problem-with-throughput" title="Link to this heading">#</a></h2>
 <p>The following graph should illuminate why this is the case:</p>
-<p><img alt="Untitled" src="_images/Image24.png" /></p>
+<p><img alt="Untitled" src="_images/Image25.png" /></p>
 <p>Bitcoin can handle about 7 transactions per second and Ethereum can handle about 20. Meanwhile Visa, the largest payment processing network in the world, averages 1700 transactions per second, and claims that their systems can reliably handle 24.000 transactions per second. Their servers are even reported to be able to handle up to 56.000 transactions per second. From tutorial 2 and 3, you will remember that the gas fees on Bitcoin and Etheruem are supposed to be set by the market, for people wanting their transactions included in the network. However, put simply, if 21 people want their transaction included in an Ethereum block this second, this ‘people led’ pricing cannot be used. Therefore, the gas fee will be raised - algorithmically or by the other users - significantly enough to make 1 person reconsider whether they really need that transaction included right away.</p>
 <p>Why not simply design blockchains to accommodate higher throughput? The reason is that increasing the number of transactions per second can compromise security and decentralisation. Achieving higher throughput typically demands better hardware to process the increased volume of transactions and greater bandwidth to propagate those transactions across the network. This can potentially reduce the overall security and decentralisation of the blockchain.</p>
 </section>
@@ -438,7 +491,7 @@ document.write(`
 <p><a class="reference external" href="https://bridge.arbitrum.io/">Bridge to Arbitrum</a></p>
 <p><img alt="Untitled" src="_images/Image115.png" /></p>
 <p>Once connected you can choose the amount that you want to transfer:</p>
-<p><img alt="Untitled" src="_images/Image25.png" /></p>
+<p><img alt="Untitled" src="_images/Image26.png" /></p>
 <p>A screen will then pop up on your right, showing your funds moving to Arbitrum. Since there are multiple steps to this process it takes a bit of time to complete.</p>
 <p><img alt="Untitled" src="_images/Image34.png" /></p>
 <p>While waiting, we can explore the Etherscan transaction sending assets to Arbitrum by clicking on the transaction ID under step 1:</p>
@@ -579,7 +632,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book community
+By Julien Prat, riho marten pallum
 </p>
 
   </div>

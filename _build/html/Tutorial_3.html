@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>3. Ethereum &#8212; My Jupyter Book</title>
+    <title>3. Ethereum &#8212; Blockchain Course</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -148,8 +148,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/Logo.png" class="logo__image only-light" alt="Blockchain Course - Home"/>
+    <script>document.write(`<img src="_static/Logo.png" class="logo__image only-dark" alt="Blockchain Course - Home"/>`);</script>
   
-    <p class="title logo__title">My Jupyter Book</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -227,6 +233,53 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/julprat/Blockcourse" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/julprat/Blockcourse/issues/new?title=Issue%20on%20page%20%2FTutorial_3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -383,7 +436,7 @@ document.write(`
 <p>In the first tutorial, we hinted that you can visualise your wallet as a physical wallet and your crypto account as a bank card. In the second tutorial, we compared Bitcoin to cash. Well, when it comes to Ethereum, it aligns more with the wallet-as-a-bank-account analogy. Ethereum operates more like a bank account, which means it sacrifices some of the privacy features found in Bitcoin.</p>
 <p>Unlike Bitcoin, Ethereum doesn’t keep track of individual ‘bills’ in your account; it only records your total balance. When funds are deposited, your balance increases, and when you make withdrawals, your balance decreases. Practically, this makes it easy to trace transactions associated with a single account because all information is readily available. However, it’s impossible to trace the path of an individual unit of currency since all funds in your balance are perfectly fungible. Additionally, Ethereum transactions typically involve a single sender and a single recipient, making it easier to read individual transactions.</p>
 <p>You can visualise Ethereum accounts using a state diagram. Unlike Bitcoin, there are no discrete ‘bills.’ Instead, Ethereum has a single balance for each coin within its ecosystem. In the initial state, Alice holds 3 Ether and 1 wrapped Bitcoin (a coin on the Ethereum ecosystem pegged to the value of Bitcoin), while Bob holds 2 Ether. After a transaction in which Alice sends 2 Ether to Bob, Bob’s balance increases by 2 Ether, and Alice’s balance decreases by 2 Ether. There are no UTXOs or change involved in this transaction.</p>
-<p><img alt="Untitled" src="_images/Image22.png" /></p>
+<p><img alt="Untitled" src="_images/Image23.png" /></p>
 </section>
 <section id="inspecting-transactions">
 <h2>Inspecting transactions<a class="headerlink" href="#inspecting-transactions" title="Link to this heading">#</a></h2>
@@ -420,7 +473,7 @@ document.write(`
 <p>On the next screen, you will get to choose who you send your money to by entering their address in the field on the top. You can also enter an <a class="reference external" href="https://ens.domains/">Ethereum Naming Service</a> name, which is in the format of “name.eth”.</p>
 <ul>
 <li><p><a class="reference external" href="https://ens.domains/">More on ENS</a></p>
-<p>The Ethereum Naming Service allows you to map human readable text into Ethereum addresses, so you can, for example be called Marten.eth instead of 0xad123… for ease of access. You can also integrate your existing .com or other domain into the ENS to be able to have names like <a class="reference external" href="http://Marten.com">Marten.com</a> (if you own that domain already).</p>
+<p>The Ethereum Naming Service allows you to map human readable text into Ethereum addresses, so you can, for example be called Marten.eth instead of 0xad123… for ease of access. You can also integrate your existing .com or other domain into the ENS to be able to have names like Marten.com (if you own that domain already).</p>
 </li>
 </ul>
 <p>After you enter the address which you want to send money to, you will be directed to the screen where you enter the amount you want to send.</p>
@@ -623,7 +676,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book community
+By Julien Prat, riho marten pallum
 </p>
 
   </div>

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>6. NFTs and Token Standards &#8212; My Jupyter Book</title>
+    <title>6. NFTs and Token Standards &#8212; Blockchain Course</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -148,8 +148,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/Logo.png" class="logo__image only-light" alt="Blockchain Course - Home"/>
+    <script>document.write(`<img src="_static/Logo.png" class="logo__image only-dark" alt="Blockchain Course - Home"/>`);</script>
   
-    <p class="title logo__title">My Jupyter Book</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -227,6 +233,53 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/julprat/Blockcourse" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/julprat/Blockcourse/issues/new?title=Issue%20on%20page%20%2FTutorial_6.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -361,7 +414,7 @@ document.write(`
 <h2>What are NFTs?<a class="headerlink" href="#what-are-nfts" title="Link to this heading">#</a></h2>
 <p>Let’s revisit Bitcoin for a moment: in the Bitcoin architecture, cash is equivalent to money. You can track the history of every individual “bill” or UTXO (Unspent Transaction Output) to see where it has been spent. Now, shifting our focus to Ethereum, it operates with accounts where all the funds in any account are considered fungible. In other words, in your account, 2 ETH is always 2 ETH, rather than consisting of, say, 2 bills of 1 ETH each or one bill of 1.5 ETH and another of 0.5 ETH. How does this relate to NFTs? NFTs essentially introduce the concept of unique “bills” to Ethereum. From a computer science standpoint, no two NFTs are exactly the same, even if they are meant to represent the same thing in practical terms. Since the Ethereum ecosystem already has Ether as its native currency, NFTs are not primarily used for transactions; instead, they serve various purposes, such as art ownership, in-game assets, proof of attendance at events, and online identity verification.</p>
 <p>To illustrate this, consider the Bored Ape Yacht Club collection, where the most expensive Bored Ape was sold for $3,408,000.</p>
-<p><img alt="Image" src="_images/Image26.png" /></p>
+<p><img alt="Image" src="_images/Image27.png" /></p>
 <p>The Bored Ape Yacht Club was the first collection of digital art that really took off. Each image of a Bored Ape is like a unique bill, in spite of the fact that the same source and share many design features. Let’s consider stablecoins again, like DAI. Every DAI in existence originates from a single contract that “mints” DAI. However, any two DAI tokens are indistinguishable from each other. In contrast, when it comes to Bored Apes and NFTs in general, each token minted is unique and distinguishable from all others. In other words, NFTs are non-fungible. Below is the contract responsible for minting Bored Apes.</p>
 <p><a class="reference external" href="https://etherscan.io/address/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d"></a></p>
 <p>Alone, it’s nothing special, but this little piece of code has made some people fabulously rich. Since quite a few other NFT collections have copied the Bored Ape Yacht Club contract code for their own NFTs, let’s examine what buying a Bored Ape NFT actually gives you. Figuring this out takes a bit of knowledge about the Ethereum programming language, Solidity, and how to read smart contracts, which is outside the scope of this tutorial, but if you are interested, there are a lot of good tutorials on how to write code in Solidity out there - for instance, <a class="reference external" href="https://cryptozombies.io/">CryptoZombies.io</a>.</p>
@@ -388,7 +441,7 @@ function tokenURI(uint256 _tokenId) external view returns (string);
 </div>
 <p>We can read out that it is an ape mounted on an orange background, wearing a fez hat, that has ‘robot eyes’, brown fur and a ‘bored’ and unshaven mouth. Quite the picture indeed. Now let’s see if it actually looks like that by following the URI from the “image” tag.</p>
 <p><a class="reference external" href="https://ipfs.io/ipfs/QmZpfxHaiASnGQk3E6Dxikr1k1mekapPDo8d5zWP6n4pd7"></a></p>
-<p><img alt="Image" src="_images/Image27.png" /></p>
+<p><img alt="Image" src="_images/Image28.png" /></p>
 <p>This is Bored Ape 1001. If we want to know who owns this NFT, the easiest way is through an NFT marketplace like OpenSea.</p>
 <p><a class="reference external" href="https://opensea.io/">OpenSea, the largest NFT marketplace</a></p>
 <p>We can search for the Bored Ape Yacht Club NFT series.</p>
@@ -537,7 +590,7 @@ These combined insights depict the dynamic blockchain landscape, illustrating it
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book community
+By Julien Prat, riho marten pallum
 </p>
 
   </div>

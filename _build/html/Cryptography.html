@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Cryptography &#8212; My Jupyter Book</title>
+    <title>Cryptography &#8212; Blockchain Course</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
@@ -150,8 +150,14 @@
   
   
   
+    
+    
+      
+    
+    
+    <img src="_static/Logo.png" class="logo__image only-light" alt="Blockchain Course - Home"/>
+    <script>document.write(`<img src="_static/Logo.png" class="logo__image only-dark" alt="Blockchain Course - Home"/>`);</script>
   
-    <p class="title logo__title">My Jupyter Book</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -229,6 +235,53 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/julprat/Blockcourse" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/julprat/Blockcourse/issues/new?title=Issue%20on%20page%20%2FCryptography.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -355,65 +408,75 @@ document.write(`
 <h1>Cryptography<a class="headerlink" href="#cryptography" title="Link to this heading">#</a></h1>
 <section id="exercise-2-1-modular-multiplication">
 <h2>Exercise 2.1. (Modular Multiplication)<a class="headerlink" href="#exercise-2-1-modular-multiplication" title="Link to this heading">#</a></h2>
-<p>Use the following property of modular multiplication
-\begin{equation*}		(a ⋅ b) \text{ mod } p = (a \text{ mod } p ⋅ b \text{ mod } p) \text{ mod } p,
-\end{equation*}
-to show that <span class="math notranslate nohighlight">\((n \text{ mod } p)a \text{ mod } p = na \text{ mod } p\)</span>. (Hint: apply an induction argument).</p>
+<p>Use the following property of modular multiplication</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}		(a ⋅ b) \text{ mod } p = (a \text{ mod } p ⋅ b \text{ mod } p) \text{ mod } p,
+\end{equation*}\]</div>
+<p>to show that <span class="math notranslate nohighlight">\((n \text{ mod } p)a \text{ mod } p = na \text{ mod } p\)</span>. (Hint: apply an induction argument).</p>
 <details>
 <summary><b>Solution</b></summary>
 <p><strong>Step 1</strong></p>
-<p>\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d88024b4-af1d-461b-8142-7705548e03cb">
+<span class="eqno">(1)<a class="headerlink" href="#equation-d88024b4-af1d-461b-8142-7705548e03cb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (a\ast b)\text{ mod }p=(a\text{ mod }p\ast b\text{ mod }p)\text{ mod }p?
 \label{modular_mult}
-\end{equation}</p>
+\end{equation}\]</div>
 <p>For all <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, there exists integers <span class="math notranslate nohighlight">\(\left\{ a_{p},b_{p}\right\} \)</span>
-and remainders <span class="math notranslate nohighlight">\(\left\{ r_{a},r_{b}\right\} \)</span> such that
-\begin{eqnarray*}
-a &amp;=&amp;a_{p}p+r_{a}, \
+and remainders <span class="math notranslate nohighlight">\(\left\{ r_{a},r_{b}\right\} \)</span> such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+a &amp;=&amp;a_{p}p+r_{a}, \\
 b &amp;=&amp;b_{p}p+r_{b}.
-\end{eqnarray*}
-Hence
-\begin{eqnarray*}
-ab &amp;=&amp;\left( a_{p}p+r_{a}\right) \left( b_{p}p+r_{b}\right)  \
+\end{eqnarray*}\]</div>
+<p>Hence</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+ab &amp;=&amp;\left( a_{p}p+r_{a}\right) \left( b_{p}p+r_{b}\right)  \\
 &amp;=&amp;p\left( a_{p}b_{p}p+r_{b}a_{p}+r_{a}b_{p}\right) +r_{a}r_{b}.
-\end{eqnarray*}
-Taking the modulo of this expression, we find that
-\begin{equation}
+\end{eqnarray*}\]</div>
+<p>Taking the modulo of this expression, we find that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4e099197-c6ad-49bb-a391-1b3c1a9e75eb">
+<span class="eqno">(2)<a class="headerlink" href="#equation-4e099197-c6ad-49bb-a391-1b3c1a9e75eb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (ab)\text{ mod }p=\left( r_{a}r_{b}\right) \text{ mod }p.  \label{modular_mult_2}
-\end{equation}</p>
+\end{equation}\]</div>
 <p>Let’s check that the right-hand side of <span class="math notranslate nohighlight">\(\left( 1\right) \)</span>
-has a similar value. First notice that
-\begin{eqnarray*}
+has a similar value. First notice that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
 a\text{ mod }p\ast b\text{ mod }p=r_{a}r_{b},
-\end{eqnarray*}
-thus
-\begin{eqnarray*}
+\end{eqnarray*}\]</div>
+<p>thus</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
 \left( a\text{ mod }p\ast b\text{ mod }p\right) \text{ mod }p=\left(
 r_{a}r_{b}\right) \text{ mod }p
-\end{eqnarray*}
-which is indeed identical to <span class="math notranslate nohighlight">\(\left( 2\right) .\)</span></p>
+\end{eqnarray*}\]</div>
+<p>which is indeed identical to <span class="math notranslate nohighlight">\(\left( 2\right) .\)</span></p>
 <p><strong>Step 2:</strong></p>
-<p>Now let’s applying this property inductively. First assume that
-\begin{eqnarray*}
+<p>Now let’s applying this property inductively. First assume that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
 H:a^{n}\text{ mod }p=\left( a\text{ mod }p\right) ^{n}\text{ mod }p,
-\end{eqnarray*}
-then we have
-\begin{eqnarray*}
-a^{n+1}\text{ mod }p &amp;=&amp;\left( a^{n}\ast a\right) \text{ mod }p \
-&amp;=&amp;\left( a^{n}\text{ mod }p\ast a\text{ mod }p\right) \text{ mod }p \
+\end{eqnarray*}\]</div>
+<p>then we have</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+a^{n+1}\text{ mod }p &amp;=&amp;\left( a^{n}\ast a\right) \text{ mod }p \\
+&amp;=&amp;\left( a^{n}\text{ mod }p\ast a\text{ mod }p\right) \text{ mod }p \\
 &amp;=&amp;\left( \left( a\text{ mod }p\right) ^{n}\ast a\text{ mod }p\right) \text{ mod }p
-\
+\\
 &amp;=&amp;\left( a\text{ mod }p\right) ^{n+1}\text{ mod }p.
-\end{eqnarray*}
-The first equality follows from <span class="math notranslate nohighlight">\(\left( 1\right) \)</span>, while
+\end{eqnarray*}\]</div>
+<p>The first equality follows from <span class="math notranslate nohighlight">\(\left( 1\right) \)</span>, while
 the second equality follows from our induction hypothesis <span class="math notranslate nohighlight">\(H\)</span>.</p>
-<p>Applied to secret sharing, the equality above yields the final result
-\begin{eqnarray*}
-s &amp;=&amp;\left( g^{b}\text{ mod }p\right) ^{a}\text{ mod }p \
-&amp;=&amp;g^{ba}\text{ mod }p \
-&amp;=&amp;\left( g^{a}\text{ mod }p\right) ^{b}\text{ mod }p \
+<p>Applied to secret sharing, the equality above yields the final result</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+s &amp;=&amp;\left( g^{b}\text{ mod }p\right) ^{a}\text{ mod }p \\
+&amp;=&amp;g^{ba}\text{ mod }p \\
+&amp;=&amp;\left( g^{a}\text{ mod }p\right) ^{b}\text{ mod }p \\
 &amp;=&amp;s^{\prime }.
-\end{eqnarray*}</p>
+\end{eqnarray*}\]</div>
 </section>
 <section id="exercise-2-2">
 <h2>Exercise 2.2.<a class="headerlink" href="#exercise-2-2" title="Link to this heading">#</a></h2>
@@ -426,53 +489,62 @@ s &amp;=&amp;\left( g^{b}\text{ mod }p\right) ^{a}\text{ mod }p \
 <li><p><strong>Euler’s totient function</strong>: <span class="math notranslate nohighlight">\(\varphi \left( n\right) \)</span> counts
 the positive integers up to <span class="math notranslate nohighlight">\(n\)</span> that are relatively prime to <span class="math notranslate nohighlight">\(n\)</span>, where
 relative primes <span class="math notranslate nohighlight">\(n^{\prime }\)</span> are such that <span class="math notranslate nohighlight">\(\gcd (n,n^{\prime })=1.\)</span></p></li>
-<li><p><strong>Fermat’s little theorem</strong>:
-\begin{eqnarray*}
-a^{p} &amp;=&amp;a\ (\text{ mod }p),\ \text{for all }a\text{ and all prime }p; \
+<li><p><strong>Fermat’s little theorem</strong>:</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+a^{p} &amp;=&amp;a\ (\text{ mod }p),\ \text{for all }a\text{ and all prime }p; \\
 a^{p-1} &amp;=&amp;1\ (\text{ mod }p),\ \text{if }a\text{ and }p\ \text{are relative
 primes.}
-\end{eqnarray*}</p></li>
-<li><p><strong>Euler’s theorem</strong>:
-\begin{eqnarray*}
+\end{eqnarray*}\]</div>
+<ol class="arabic simple" start="3">
+<li><p><strong>Euler’s theorem</strong>:</p></li>
+</ol>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
 a^{\varphi \left( n\right) }=1\ (\text{ mod }n),\ \text{if }a\text{ and }n\ 
 \text{are relative primes.}
-\end{eqnarray*}</p></li>
-</ol>
+\end{eqnarray*}\]</div>
 <p><strong>Application to RSA.</strong></p>
-<p>Hypothesis:
-\begin{eqnarray*}
-n &amp;=&amp;pq, \
-\gcd (K,\varphi \left( n\right) ) &amp;=&amp;1, \
+<p>Hypothesis:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+n &amp;=&amp;pq, \\
+\gcd (K,\varphi \left( n\right) ) &amp;=&amp;1, \\
 kK &amp;=&amp;1(\text{ mod }\varphi \left( n\right) ).
-\end{eqnarray*}</p>
+\end{eqnarray*}\]</div>
 <p>Note that the last two conditions are consistent. Assume that the last one
-holds, then there exists a <span class="math notranslate nohighlight">\(\lambda \ \)</span>such that
-\begin{eqnarray*}
+holds, then there exists a <span class="math notranslate nohighlight">\(\lambda \ \)</span>such that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
 kK=\lambda \varphi \left( n\right) +1\Rightarrow kK-\lambda \varphi \left(
 n\right) =1.
-\end{eqnarray*}
-Hence if there a exists an integer <span class="math notranslate nohighlight">\(d\)</span> that divides <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(\varphi \left(
+\end{eqnarray*}\]</div>
+<p>Hence if there a exists an integer <span class="math notranslate nohighlight">\(d\)</span> that divides <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(\varphi \left(
 n\right) ,\)</span> it must also divide <span class="math notranslate nohighlight">\(kK-\lambda \varphi \left( n\right) \)</span>. Thus
-<span class="math notranslate nohighlight">\(d\)</span> should divide <span class="math notranslate nohighlight">\(1,\)</span> which implies that <span class="math notranslate nohighlight">\(d=1.\)</span> It follows that
-\begin{eqnarray*}
+<span class="math notranslate nohighlight">\(d\)</span> should divide <span class="math notranslate nohighlight">\(1,\)</span> which implies that <span class="math notranslate nohighlight">\(d=1.\)</span> It follows that</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
 kK=1(\text{ mod }\varphi \left( n\right) )\Rightarrow \gcd (K,\varphi \left(
 n\right) )=1.
-\end{eqnarray*}</p>
-<p><strong>Step 1. Encryption</strong>:
-\begin{eqnarray*}
+\end{eqnarray*}\]</div>
+<p><strong>Step 1. Encryption</strong>:</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
 C=E(M;K)=M^{K}\text{ mod }n.
-\end{eqnarray*}</p>
-<p><strong>Step 2. Decryption:</strong>
-\begin{eqnarray*}
-D(C;k) &amp;=&amp;C^{k}\text{ mod }n \
-&amp;=&amp;\left( M^{K}\right) ^{k}\text{ mod }n \
-&amp;=&amp;M^{\lambda \varphi \left( n\right) +1}\text{ mod }n \
-&amp;=&amp;\left( M^{\lambda \varphi \left( n\right) }\right) M\text{ mod }n \
-&amp;=&amp;\left( M^{\varphi \left( n\right) }\text{ mod }n\right) ^{\lambda }M\text{ mod }n \
-(by\ Euler^{\prime }s\ Theorem) &amp;=&amp;1^{\lambda }M\text{ mod }n \
+\end{eqnarray*}\]</div>
+<p><strong>Step 2. Decryption:</strong></p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{eqnarray*}
+D(C;k) &amp;=&amp;C^{k}\text{ mod }n \\
+&amp;=&amp;\left( M^{K}\right) ^{k}\text{ mod }n \\
+&amp;=&amp;M^{\lambda \varphi \left( n\right) +1}\text{ mod }n \\
+&amp;=&amp;\left( M^{\lambda \varphi \left( n\right) }\right) M\text{ mod }n \\
+&amp;=&amp;\left( M^{\varphi \left( n\right) }\text{ mod }n\right) ^{\lambda }M\text{ mod }n \\
+(by\ Euler^{\prime }s\ Theorem) &amp;=&amp;1^{\lambda }M\text{ mod }n \\
 &amp;=&amp;M.
-\end{eqnarray*}
-So the decryption algorithm returns the original message.</p>
+\end{eqnarray*}\]</div>
+<p>So the decryption algorithm returns the original message.</p>
 <p>Note that Euler’s theorem holds solely if <span class="math notranslate nohighlight">\(M\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are relative primes.
 In practice, these are huge numbers, so concerns is not likely to be
 relevant.</p>
@@ -495,7 +567,7 @@ The receiver\verifier calculates the hash of the document using the same hash fu
 <h2>Exercise 2.4.<a class="headerlink" href="#exercise-2-4" title="Link to this heading">#</a></h2>
 <p>Write a script in Python that implements RSA encryption/decryption.</p>
 <p><strong>Solution</strong></p>
-<p>Below is a draft of the code. You have to complete its two holes to make it work.</p>
+<p>Below is a draft of the code. You have to complete its two commented section starting with ‘#Your code goes here’ to make it work.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">=</span> <span class="mi">23</span>
 <span class="n">q</span><span class="o">=</span> <span class="mi">17</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Choosen primes:</span><span class="se">\n</span><span class="s2">p=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;, q=&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">q</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -643,7 +715,7 @@ The receiver\verifier calculates the hash of the document using the same hash fu
   <div class="footer-item">
     
 <p class="component-author">
-By The Jupyter Book community
+By Julien Prat, riho marten pallum
 </p>
 
   </div>

@@ -15,4 +15,5 @@ parts:
   - caption: Exercises
     chapters:
     - file: Cryptography
+    - file: Bitcoin_Core
     - file: Mint_NFT

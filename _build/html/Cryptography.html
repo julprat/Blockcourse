@@ -419,8 +419,8 @@ document.write(`
 <details>
 <summary><b>Solution</b></summary>
 <p><strong>Step 1</strong></p>
-<div class="amsmath math notranslate nohighlight" id="equation-b9ce8fd3-c17e-44cf-8374-e6cbb1c07813">
-<span class="eqno">(1)<a class="headerlink" href="#equation-b9ce8fd3-c17e-44cf-8374-e6cbb1c07813" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9cbe1bac-069c-49e0-802e-5700d19212b9">
+<span class="eqno">(1)<a class="headerlink" href="#equation-9cbe1bac-069c-49e0-802e-5700d19212b9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (a\ast b)\text{ mod }p=(a\text{ mod }p\ast b\text{ mod }p)\text{ mod }p?
 \label{modular_mult}
 \end{equation}\]</div>
@@ -438,8 +438,8 @@ ab &amp;=&amp;\left( a_{p}p+r_{a}\right) \left( b_{p}p+r_{b}\right)  \\
 &amp;=&amp;p\left( a_{p}b_{p}p+r_{b}a_{p}+r_{a}b_{p}\right) +r_{a}r_{b}.
 \end{eqnarray*}\]</div>
 <p>Taking the modulo of this expression, we find that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-733746cf-6ca4-4ba8-ba99-fa21aded2984">
-<span class="eqno">(2)<a class="headerlink" href="#equation-733746cf-6ca4-4ba8-ba99-fa21aded2984" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-69b4f5dc-2b3f-4974-a27c-8a8cd0a7dc4d">
+<span class="eqno">(2)<a class="headerlink" href="#equation-69b4f5dc-2b3f-4974-a27c-8a8cd0a7dc4d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 (ab)\text{ mod }p=\left( r_{a}r_{b}\right) \text{ mod }p.  \label{modular_mult_2}
 \end{equation}\]</div>
 <p>Let’s check that the right-hand side of <span class="math notranslate nohighlight">\(\left( 1\right) \)</span>
@@ -582,11 +582,15 @@ The receiver\verifier calculates the hash of the document using the same hash fu
     <span class="k">while</span> <span class="n">b</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
      <span class="c1"># Your code goes here</span>
      <span class="c1"># Write procedure to compute greatest common denominator gcd</span>
+       <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span>
+       <span class="n">a</span> <span class="o">=</span> <span class="n">b</span>
+       <span class="n">b</span> <span class="o">=</span> <span class="n">c</span>
     <span class="k">return</span> <span class="n">a</span>
 <span class="k">def</span> <span class="nf">modinv</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
         <span class="c1"># Your code goes here</span>
         <span class="c1"># Find modular inverse</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span> <span class="o">%</span> <span class="n">m</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">x</span>
     <span class="k">return</span> <span class="kc">None</span>
 <span class="k">def</span> <span class="nf">coprimes</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
